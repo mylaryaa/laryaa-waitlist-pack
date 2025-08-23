@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FormData {
   email: string;
@@ -61,10 +62,21 @@ const Reserve = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission since Supabase isn't connected yet
     try {
-      // This would normally save to Supabase
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Save to Supabase waitlist table
+      const { error } = await supabase
+        .from('waitlist')
+        .insert([{
+          email: formData.email,
+          consent: formData.consent,
+          // Store additional data as JSON in a metadata column if needed
+          // For now, we're only saving email and consent as per the current table structure
+        }]);
+
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
       
       toast({
         title: "Success!",
@@ -90,6 +102,7 @@ const Reserve = () => {
         consent: false,
       });
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",

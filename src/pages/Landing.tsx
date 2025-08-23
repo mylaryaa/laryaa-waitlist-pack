@@ -13,7 +13,7 @@ const Landing = () => {
             <img 
               src={laryaaLogo} 
               alt="Laryaa Logo" 
-              className="h-12 w-auto"
+              className="h-10 w-auto brightness-95 contrast-110 hover:brightness-100 transition-all duration-300"
             />
           </Link>
           <nav className="text-sm text-landing-muted space-x-6">
@@ -44,21 +44,21 @@ const Landing = () => {
         </section>
 
         <section id="about" className="mt-32 grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
-          <div className="rounded-3xl border border-gray-200 p-8 bg-white/60 backdrop-blur-sm hover:shadow-lg transition-shadow">
-            <h3 className="font-bold text-xl text-landing-text">AI-powered pitches</h3>
-            <p className="mt-4 text-landing-muted leading-relaxed">
+          <div className="rounded-3xl border border-border p-8 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+            <h3 className="font-bold text-xl text-card-foreground">AI-powered pitches</h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
               Each lead gets a tailored pitch aligned to their industry and pain points.
             </p>
           </div>
-          <div className="rounded-3xl border border-gray-200 p-8 bg-white/60 backdrop-blur-sm hover:shadow-lg transition-shadow">
-            <h3 className="font-bold text-xl text-landing-text">Objections handled</h3>
-            <p className="mt-4 text-landing-muted leading-relaxed">
+          <div className="rounded-3xl border border-border p-8 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+            <h3 className="font-bold text-xl text-card-foreground">Objections handled</h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
               Pre-answered objections and ready rebuttals, before the call even starts.
             </p>
           </div>
-          <div className="rounded-3xl border border-gray-200 p-8 bg-white/60 backdrop-blur-sm hover:shadow-lg transition-shadow">
-            <h3 className="font-bold text-xl text-landing-text">WhatsApp-first</h3>
-            <p className="mt-4 text-landing-muted leading-relaxed">
+          <div className="rounded-3xl border border-border p-8 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+            <h3 className="font-bold text-xl text-card-foreground">WhatsApp-first</h3>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
               Built for modern, mobile sales workflows. Web, mobile, and desktop.
             </p>
           </div>
@@ -96,7 +96,7 @@ const Landing = () => {
           </p>
         </section>
 
-        <footer className="mt-20 border-t border-gray-200 pt-8 text-center text-sm text-landing-muted">
+        <footer className="mt-20 border-t border-border pt-8 text-center text-sm text-landing-muted">
           © {currentYear} Laryaa.
         </footer>
       </main>

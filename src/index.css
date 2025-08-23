@@ -8,22 +8,22 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Laryaa Brand Colors - Clean and Sleek */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    /* Laryaa Brand Colors - Easy on Eyes */
+    --background: 210 25% 98%;
+    --foreground: 210 15% 20%;
     
-    --landing-bg: 0 0% 98%; /* Clean light background */
-    --landing-text: 0 0% 15%; /* Dark gray text */
-    --landing-muted: 0 0% 45%; /* Medium gray */
+    --landing-bg: 210 20% 98%; /* Soft off-white with blue tint */
+    --landing-text: 210 15% 15%; /* Soft dark text */
+    --landing-muted: 210 10% 50%; /* Gentle muted text */
     
     /* Brand accent colors */
     --brand-mint: 165 45% 65%; /* Mint green from brand */
     --brand-blue: 210 85% 55%; /* Blue highlight */
     --brand-yellow: 45 95% 65%; /* Yellow highlight */
     
-    --questionnaire-bg: 0 0% 98%; /* neutral-50 */
-    --questionnaire-text: 0 0% 15%; /* neutral-900 */
-    --questionnaire-muted: 0 0% 40%; /* neutral-600 */
+    --questionnaire-bg: 210 20% 97%; /* Soft blue-tinted background */
+    --questionnaire-text: 210 15% 15%; /* Soft dark text */
+    --questionnaire-muted: 210 8% 45%; /* Gentle muted text */
     
     /* Blue theme variant */
     --blue-theme-start: 210 65% 15%; /* #0e2a47 */
