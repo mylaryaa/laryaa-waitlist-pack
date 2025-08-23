@@ -2,80 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Set Inter as the default font family */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Professional Dark Theme - Easy on Eyes */
-    --background: 225 15% 8%; /* Dark navy background */
-    --foreground: 210 20% 95%; /* Light text */
-    
-    --landing-bg: 225 15% 8%; /* Professional dark navy */
-    --landing-text: 210 20% 95%; /* Clean white text */
-    --landing-muted: 210 15% 70%; /* Refined muted text */
-    --landing-accent: 225 20% 12%; /* Subtle accent background */
-    
-    /* Elegant Brand Colors */
-    --brand-mint: 165 60% 50%; /* Professional mint */
-    --brand-blue: 210 100% 60%; /* Vibrant blue */
-    --brand-yellow: 45 100% 60%; /* Clean yellow */
-    --brand-gradient: linear-gradient(135deg, hsl(165 60% 50%), hsl(210 100% 60%));
-    
-    --questionnaire-bg: 225 12% 10%; /* Slightly lighter for forms */
-    --questionnaire-text: 210 20% 95%; /* Clean white text */
-    --questionnaire-muted: 210 15% 65%; /* Refined muted text */
-    
-    /* Professional gradients */
-    --gradient-bg: linear-gradient(135deg, hsl(225 15% 8%) 0%, hsl(225 20% 12%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(225 20% 12%) 0%, hsl(225 15% 10%) 100%);
-    
-    --card: 225 20% 12%;
-    --card-foreground: 210 20% 95%;
-
-    --popover: 225 20% 12%;
-    --popover-foreground: 210 20% 95%;
-
-    --primary: 165 60% 50%;
-    --primary-foreground: 225 15% 8%;
-
-    --secondary: 225 25% 15%;
-    --secondary-foreground: 210 20% 95%;
-
-    --muted: 225 20% 15%;
-    --muted-foreground: 210 15% 70%;
-
-    --accent: 225 25% 15%;
-    --accent-foreground: 210 20% 95%;
-
+    /* Updated Color Palette */
+    --background: 215 28% 17%; /* #111827 - Dark charcoal */
+    --foreground: 220 13% 82%; /* #D1D5DB - Off-white for body text */
+    --card: 215 28% 17%;
+    --card-foreground: 220 13% 82%;
+    --popover: 215 28% 17%;
+    --popover-foreground: 220 13% 82%;
+    --primary: 225 30% 60%;
+    --primary-foreground: 215 28% 17%;
+    --secondary: 215 25% 27%; /* #1F2937 - Slightly lighter for founder section */
+    --secondary-foreground: 220 13% 82%;
+    --muted: 215 25% 27%;
+    --muted-foreground: 220 9% 46%; /* Gray for small text */
+    --accent: 215 25% 27%;
+    --accent-foreground: 220 13% 82%;
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 95%;
+    --destructive-foreground: 220 13% 82%;
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 225 30% 60%;
+    --radius: 0.5rem;
 
-    --border: 225 20% 20%;
-    --input: 225 20% 15%;
-    --ring: 165 60% 50%;
+    /* Brand Colors */
+    --brand-mint: 164 76% 39%;
+    --brand-blue: 200 98% 39%;
+    --brand-yellow: 45 93% 58%; /* #FBBF24 - Bright yellow */
+    --brand-emerald: 158 64% 52%; /* #10B981 - Emerald green */
+    --brand-teal: 170 97% 45%; /* Lighter teal for gradient */
 
-    --success: 142 76% 50%;
-    --success-foreground: 225 15% 8%;
+    /* Text Colors */
+    --heading-text: 0 0% 100%; /* #FFFFFF - Pure white for headings */
+    --body-text: 220 13% 82%; /* #D1D5DB - Off-white for body text */
+    --muted-text: 220 9% 46%; /* Gray for muted text */
 
-    --radius: 0.75rem;
+    /* Legacy colors for compatibility */
+    --landing-bg: 215 28% 17%;
+    --landing-text: 220 13% 82%;
+    --landing-muted: 220 9% 46%;
+    --landing-accent: 215 25% 27%;
+    --questionnaire-bg: 215 25% 27%;
+    --questionnaire-text: 220 13% 82%;
+    --questionnaire-muted: 220 9% 46%;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar Colors */
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 220 13% 82%;
+    --sidebar-primary: 225 30% 60%;
+    --sidebar-primary-foreground: 215 28% 17%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 220 13% 82%;
+    --sidebar-border: 215 25% 27%;
+    --sidebar-ring: 225 30% 60%;
   }
 
   .dark {
