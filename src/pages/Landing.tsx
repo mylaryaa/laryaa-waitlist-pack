@@ -1,79 +1,89 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import laryaaLogo from "@/assets/laryaa-logo.png";
 
 const Landing = () => {
   const currentYear = new Date().getFullYear();
   
   return (
     <div className="bg-landing-bg text-landing-text antialiased min-h-screen">
-      <main className="mx-auto max-w-5xl px-6 py-14">
-        <header className="flex items-center justify-between">
-          <Link to="/" className="font-extrabold tracking-tight text-5xl md:text-6xl leading-none">
-            Laryaa
+      <main className="mx-auto max-w-6xl px-6 py-16">
+        <header className="flex items-center justify-between mb-20">
+          <Link to="/" className="flex items-center gap-4">
+            <img 
+              src={laryaaLogo} 
+              alt="Laryaa Logo" 
+              className="h-12 w-auto"
+            />
           </Link>
-          <nav className="text-sm text-landing-muted space-x-4">
-            <a className="hover:underline" href="#about">About</a>
-            <a className="hover:underline" href="#contact">Contact</a>
+          <nav className="text-sm text-landing-muted space-x-6">
+            <a className="hover:text-landing-text transition-colors" href="#about">About</a>
+            <a className="hover:text-landing-text transition-colors" href="#contact">Contact</a>
           </nav>
         </header>
 
-        <section className="mt-16 text-left md:text-center">
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-            Every lead gets its own pitch.
+        <section className="text-center max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+            Every lead gets its own{" "}
+            <span className="text-brand-blue">pitch</span>.
             <br className="hidden md:block" />
-            Objections? Pre-answered.
+            <span className="text-brand-yellow">Objections</span>? Pre-answered.
           </h1>
-          <p className="mt-4 text-landing-muted md:text-lg">
+          <p className="mt-8 text-landing-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             From first touch to close — Laryaa guides the pitch and the pushback.
           </p>
-          <div className="mt-8">
-            <Button asChild variant="secondary" size="lg" className="rounded-xl">
+          <div className="mt-12">
+            <Button 
+              asChild 
+              size="lg" 
+              className="rounded-full px-8 py-6 text-lg font-medium bg-brand-mint text-white hover:opacity-90 transition-opacity"
+            >
               <Link to="/reserve">Reserve Your Spot</Link>
             </Button>
           </div>
         </section>
 
-        <section id="about" className="mt-20 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 p-6">
-            <h3 className="font-semibold">AI-powered pitches</h3>
-            <p className="mt-2 text-sm text-landing-muted">
+        <section id="about" className="mt-32 grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+          <div className="rounded-3xl border border-gray-200 p-8 bg-white/60 backdrop-blur-sm hover:shadow-lg transition-shadow">
+            <h3 className="font-bold text-xl text-landing-text">AI-powered pitches</h3>
+            <p className="mt-4 text-landing-muted leading-relaxed">
               Each lead gets a tailored pitch aligned to their industry and pain points.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 p-6">
-            <h3 className="font-semibold">Objections handled</h3>
-            <p className="mt-2 text-sm text-landing-muted">
+          <div className="rounded-3xl border border-gray-200 p-8 bg-white/60 backdrop-blur-sm hover:shadow-lg transition-shadow">
+            <h3 className="font-bold text-xl text-landing-text">Objections handled</h3>
+            <p className="mt-4 text-landing-muted leading-relaxed">
               Pre-answered objections and ready rebuttals, before the call even starts.
             </p>
           </div>
-          <div className="rounded-2xl border border-white/10 p-6">
-            <h3 className="font-semibold">WhatsApp-first</h3>
-            <p className="mt-2 text-sm text-landing-muted">
+          <div className="rounded-3xl border border-gray-200 p-8 bg-white/60 backdrop-blur-sm hover:shadow-lg transition-shadow">
+            <h3 className="font-bold text-xl text-landing-text">WhatsApp-first</h3>
+            <p className="mt-4 text-landing-muted leading-relaxed">
               Built for modern, mobile sales workflows. Web, mobile, and desktop.
             </p>
           </div>
         </section>
 
-        <section id="contact" className="mt-16 text-sm text-landing-muted">
-          <div className="flex flex-wrap items-center gap-3">
+        <section id="contact" className="mt-24 text-center">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-landing-muted">
             <a 
-              className="underline hover:text-landing-text transition-colors" 
+              className="hover:text-brand-mint transition-colors font-medium" 
               href="mailto:hello@laryaa.com"
             >
               hello@laryaa.com
             </a>
-            <span>·</span>
+            <span className="text-gray-300">•</span>
             <a 
-              className="underline hover:text-landing-text transition-colors" 
+              className="hover:text-brand-mint transition-colors font-medium" 
               href="https://instagram.com/mylaryaa" 
               target="_blank" 
               rel="noopener noreferrer"
             >
               Instagram @mylaryaa
             </a>
-            <span>·</span>
+            <span className="text-gray-300">•</span>
             <a 
-              className="underline hover:text-landing-text transition-colors" 
+              className="hover:text-brand-mint transition-colors font-medium" 
               href="https://x.com/laryaa544404" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -81,12 +91,12 @@ const Landing = () => {
               X @laryaa544404
             </a>
           </div>
-          <p className="mt-4 text-xs">
+          <p className="mt-6 text-sm text-landing-muted max-w-md mx-auto">
             We collect personal data only to manage early access and updates. Unsubscribe anytime.
           </p>
         </section>
 
-        <footer className="mt-16 border-t border-white/10 pt-6 text-xs text-landing-muted/60">
+        <footer className="mt-20 border-t border-gray-200 pt-8 text-center text-sm text-landing-muted">
           © {currentYear} Laryaa.
         </footer>
       </main>
