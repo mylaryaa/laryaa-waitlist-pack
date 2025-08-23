@@ -16,22 +16,55 @@ export type Database = {
     Tables: {
       waitlist: {
         Row: {
+          alt_email: string | null
+          company_name: string | null
+          company_size: string | null
           consent: boolean
           created_at: string | null
           email: string
           id: string
+          industry: string | null
+          location: string | null
+          needs: string | null
+          primary_channel: string | null
+          revenue_range: string | null
+          role: string | null
+          website_url: string | null
+          whatsapp: string | null
         }
         Insert: {
+          alt_email?: string | null
+          company_name?: string | null
+          company_size?: string | null
           consent?: boolean
           created_at?: string | null
           email: string
           id?: string
+          industry?: string | null
+          location?: string | null
+          needs?: string | null
+          primary_channel?: string | null
+          revenue_range?: string | null
+          role?: string | null
+          website_url?: string | null
+          whatsapp?: string | null
         }
         Update: {
+          alt_email?: string | null
+          company_name?: string | null
+          company_size?: string | null
           consent?: boolean
           created_at?: string | null
           email?: string
           id?: string
+          industry?: string | null
+          location?: string | null
+          needs?: string | null
+          primary_channel?: string | null
+          revenue_range?: string | null
+          role?: string | null
+          website_url?: string | null
+          whatsapp?: string | null
         }
         Relationships: []
       }

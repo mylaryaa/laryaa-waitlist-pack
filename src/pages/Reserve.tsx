@@ -63,14 +63,23 @@ const Reserve = () => {
     setIsSubmitting(true);
     
     try {
-      // Save to Supabase waitlist table
+      // Save to Supabase waitlist table with all form data
       const { error } = await supabase
         .from('waitlist')
         .insert([{
           email: formData.email,
           consent: formData.consent,
-          // Store additional data as JSON in a metadata column if needed
-          // For now, we're only saving email and consent as per the current table structure
+          company_name: formData.company_name || null,
+          industry: formData.industry || null,
+          company_size: formData.company_size || null,
+          role: formData.role || null,
+          revenue_range: formData.revenue_range || null,
+          primary_channel: formData.primary_channel || null,
+          location: formData.location || null,
+          website_url: formData.website_url || null,
+          whatsapp: formData.whatsapp || null,
+          alt_email: formData.alt_email || null,
+          needs: formData.needs || null,
         }]);
 
       if (error) {
