@@ -29,11 +29,10 @@ const Landing = () => {
 
         <section className="text-center max-w-4xl mx-auto px-4">
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight text-[hsl(var(--heading-text))]">
-            <span className="text-[hsl(var(--muted-text))]">Objections?</span>{" "}
-            <span className="text-[hsl(var(--brand-yellow))]">Pre-answered.</span>
+            AI Co-Pilot for Sales Intelligence & Objection Handling
           </h1>
           <p className="mt-6 sm:mt-8 text-[hsl(var(--body-text))] text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light px-4">
-            Laryaa is an AI Sales Co-Pilot that helps you craft the perfect pitch for every lead and handle pushback before it happens. Built for SMBs in India.
+            Laryaa analyzes customer conversations to help you craft the perfect pitch and handle pushback before it happens. The smarter alternative to complex revenue intelligence platforms.
           </p>
           <div className="mt-12 sm:mt-16">
             <Button 
@@ -78,6 +77,16 @@ const Landing = () => {
               Our co-pilot anticipates common pushbacks and prepares you with smart replies to keep the conversation moving.
             </p>
           </div>
+        </section>
+
+        {/* New Comparison Section */}
+        <section className="mt-24 sm:mt-32 max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[hsl(var(--heading-text))] mb-6 sm:mb-8">
+            Built for SMBs, Not Enterprises
+          </h2>
+          <p className="text-[hsl(var(--body-text))] text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto">
+            Tools like Gong and other enterprise-level platforms are powerful, but they are often too complex and expensive for growing sales teams. Laryaa provides the core sales intelligence you need—like pitch suggestions and objection handling—in a simple, affordable package designed for the speed of SMBs in India.
+          </p>
         </section>
 
         {/* New Founder Note Section */}
