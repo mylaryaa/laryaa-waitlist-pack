@@ -31,7 +31,7 @@ const Landing = () => {
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight">
             Every lead gets its own{" "}
             <span className="bg-gradient-to-r from-brand-blue to-brand-mint bg-clip-text text-transparent">pitch</span>.
-            <br className="hidden sm:block" />
+            <br />
             <span className="bg-gradient-to-r from-brand-yellow to-brand-blue bg-clip-text text-transparent">Objections</span>? Pre-answered.
           </h1>
           <p className="mt-6 sm:mt-8 text-landing-muted text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light px-4">
