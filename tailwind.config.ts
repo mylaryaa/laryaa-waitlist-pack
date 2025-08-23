@@ -52,6 +52,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				// Laryaa Brand Colors
+				'landing-bg': 'hsl(var(--landing-bg))',
+				'landing-text': 'hsl(var(--landing-text))',
+				'landing-muted': 'hsl(var(--landing-muted))',
+				'questionnaire-bg': 'hsl(var(--questionnaire-bg))',
+				'questionnaire-text': 'hsl(var(--questionnaire-text))',
+				'questionnaire-muted': 'hsl(var(--questionnaire-muted))',
+				'blue-theme-start': 'hsl(var(--blue-theme-start))',
+				'blue-theme-end': 'hsl(var(--blue-theme-end))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
