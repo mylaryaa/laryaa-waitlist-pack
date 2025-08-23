@@ -123,22 +123,26 @@ const Reserve = () => {
   };
 
   return (
-    <div className="bg-questionnaire-bg text-questionnaire-text antialiased min-h-screen">
+    <div className="bg-gradient-to-br from-[hsl(225,15%,8%)] to-[hsl(225,20%,12%)] text-questionnaire-text antialiased min-h-screen">
       <main className="mx-auto max-w-3xl px-6 py-10">
         <Link 
           to="/" 
-          className="text-sm text-questionnaire-muted hover:underline hover:text-questionnaire-text transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-questionnaire-muted hover:text-brand-mint transition-colors font-medium"
         >
           ← Back to Laryaa
         </Link>
         
-        <h1 className="mt-4 text-3xl font-bold">Reserve Your Spot</h1>
-        <p className="mt-2 text-questionnaire-muted">
-          Tell us a little about your company.{" "}
-          <span className="font-medium">Email is required</span>; everything else is optional (but helpful).
-        </p>
+        <div className="mt-8 mb-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand-mint to-brand-blue bg-clip-text text-transparent">
+            Reserve Your Spot
+          </h1>
+          <p className="mt-4 text-questionnaire-muted text-lg max-w-2xl mx-auto">
+            Tell us a little about your company.{" "}
+            <span className="font-medium text-brand-mint">Email is required</span>; everything else is optional (but helpful).
+          </p>
+        </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6 bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-sm rounded-3xl border border-brand-mint/20 p-8">
           {/* Honeypot */}
           <input
             type="text"
@@ -336,18 +340,20 @@ const Reserve = () => {
           <Button
             type="submit"
             disabled={!isFormValid || isSubmitting}
-            className="rounded-xl px-6 py-3"
+            className="w-full rounded-2xl px-8 py-6 text-lg font-semibold bg-gradient-to-r from-brand-mint to-brand-blue text-white hover:shadow-2xl hover:shadow-brand-mint/25 transition-all duration-500 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
           >
             {isSubmitting ? "Submitting..." : 
              isFormValid ? "Submit & Join Waitlist" : "Submit & Join Waitlist"}
           </Button>
         </form>
 
-        <section className="mt-12 text-xs text-questionnaire-muted">
-          <p>
-            <strong>Privacy:</strong> We collect this info to prioritise onboarding and tailor early access.
-            Email is mandatory; other fields are optional. We do not sell data.
-          </p>
+        <section className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-card/30 to-card/20 backdrop-blur-sm rounded-2xl border border-brand-blue/20 p-6">
+            <p className="text-xs text-questionnaire-muted leading-relaxed">
+              <strong className="text-brand-mint">Privacy:</strong> We collect this info to prioritise onboarding and tailor early access.
+              Email is mandatory; other fields are optional. We do not sell data.
+            </p>
+          </div>
         </section>
       </main>
     </div>

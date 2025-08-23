@@ -6,59 +6,73 @@ const Landing = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <div className="bg-landing-bg text-landing-text antialiased min-h-screen">
+    <div className="bg-gradient-to-br from-[hsl(225,15%,8%)] to-[hsl(225,20%,12%)] text-landing-text antialiased min-h-screen">
       <main className="mx-auto max-w-6xl px-6 py-16">
         <header className="flex items-center justify-between mb-20">
-          <Link to="/" className="flex items-center gap-4">
-            <img 
-              src={laryaaLogo} 
-              alt="Laryaa Logo" 
-              className="h-10 w-auto brightness-95 contrast-110 hover:brightness-100 transition-all duration-300"
-            />
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="flex items-center gap-3 px-4 py-2 rounded-2xl bg-gradient-to-r from-brand-mint/10 to-brand-blue/10 border border-brand-mint/20 backdrop-blur-sm transition-all duration-300 group-hover:from-brand-mint/20 group-hover:to-brand-blue/20">
+              <img 
+                src={laryaaLogo} 
+                alt="Laryaa Logo" 
+                className="h-8 w-auto brightness-110 contrast-120 group-hover:brightness-125 transition-all duration-300"
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-brand-mint to-brand-blue bg-clip-text text-transparent">
+                Laryaa
+              </span>
+            </div>
           </Link>
           <nav className="text-sm text-landing-muted space-x-6">
-            <a className="hover:text-landing-text transition-colors" href="#about">About</a>
-            <a className="hover:text-landing-text transition-colors" href="#contact">Contact</a>
+            <a className="hover:text-brand-mint transition-colors font-medium" href="#about">About</a>
+            <a className="hover:text-brand-mint transition-colors font-medium" href="#contact">Contact</a>
           </nav>
         </header>
 
         <section className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
             Every lead gets its own{" "}
-            <span className="text-brand-blue">pitch</span>.
+            <span className="bg-gradient-to-r from-brand-blue to-brand-mint bg-clip-text text-transparent">pitch</span>.
             <br className="hidden md:block" />
-            <span className="text-brand-yellow">Objections</span>? Pre-answered.
+            <span className="bg-gradient-to-r from-brand-yellow to-brand-blue bg-clip-text text-transparent">Objections</span>? Pre-answered.
           </h1>
-          <p className="mt-8 text-landing-muted text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-8 text-landing-muted text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light">
             From first touch to close — Laryaa guides the pitch and the pushback.
           </p>
-          <div className="mt-12">
+          <div className="mt-16">
             <Button 
               asChild 
               size="lg" 
-              className="rounded-full px-8 py-6 text-lg font-medium bg-brand-mint text-white hover:opacity-90 transition-opacity"
+              className="rounded-full px-12 py-8 text-xl font-semibold bg-gradient-to-r from-brand-mint to-brand-blue text-white hover:shadow-2xl hover:shadow-brand-mint/25 transition-all duration-500 transform hover:-translate-y-1"
             >
               <Link to="/reserve">Reserve Your Spot</Link>
             </Button>
           </div>
         </section>
 
-        <section id="about" className="mt-32 grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
-          <div className="rounded-3xl border border-border p-8 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-            <h3 className="font-bold text-xl text-card-foreground">AI-powered pitches</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+        <section id="about" className="mt-40 grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+          <div className="rounded-3xl border border-brand-mint/20 p-10 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm hover:shadow-2xl hover:shadow-brand-mint/10 transition-all duration-500 transform hover:-translate-y-2">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-brand-mint/20 to-brand-blue/20 flex items-center justify-center mb-6">
+              <span className="text-2xl">🎯</span>
+            </div>
+            <h3 className="font-bold text-2xl text-card-foreground mb-4">AI-powered pitches</h3>
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Each lead gets a tailored pitch aligned to their industry and pain points.
             </p>
           </div>
-          <div className="rounded-3xl border border-border p-8 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-            <h3 className="font-bold text-xl text-card-foreground">Objections handled</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+          <div className="rounded-3xl border border-brand-blue/20 p-10 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm hover:shadow-2xl hover:shadow-brand-blue/10 transition-all duration-500 transform hover:-translate-y-2">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-brand-blue/20 to-brand-yellow/20 flex items-center justify-center mb-6">
+              <span className="text-2xl">🛡️</span>
+            </div>
+            <h3 className="font-bold text-2xl text-card-foreground mb-4">Objections handled</h3>
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Pre-answered objections and ready rebuttals, before the call even starts.
             </p>
           </div>
-          <div className="rounded-3xl border border-border p-8 bg-card/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-            <h3 className="font-bold text-xl text-card-foreground">WhatsApp-first</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+          <div className="rounded-3xl border border-brand-yellow/20 p-10 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-sm hover:shadow-2xl hover:shadow-brand-yellow/10 transition-all duration-500 transform hover:-translate-y-2">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-brand-yellow/20 to-brand-mint/20 flex items-center justify-center mb-6">
+              <span className="text-2xl">💬</span>
+            </div>
+            <h3 className="font-bold text-2xl text-card-foreground mb-4">WhatsApp-first</h3>
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Built for modern, mobile sales workflows. Web, mobile, and desktop.
             </p>
           </div>

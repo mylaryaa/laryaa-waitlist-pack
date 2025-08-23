@@ -8,54 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Laryaa Brand Colors - Easy on Eyes */
-    --background: 210 25% 98%;
-    --foreground: 210 15% 20%;
+    /* Professional Dark Theme - Easy on Eyes */
+    --background: 225 15% 8%; /* Dark navy background */
+    --foreground: 210 20% 95%; /* Light text */
     
-    --landing-bg: 210 20% 98%; /* Soft off-white with blue tint */
-    --landing-text: 210 15% 15%; /* Soft dark text */
-    --landing-muted: 210 10% 50%; /* Gentle muted text */
+    --landing-bg: 225 15% 8%; /* Professional dark navy */
+    --landing-text: 210 20% 95%; /* Clean white text */
+    --landing-muted: 210 15% 70%; /* Refined muted text */
+    --landing-accent: 225 20% 12%; /* Subtle accent background */
     
-    /* Brand accent colors */
-    --brand-mint: 165 45% 65%; /* Mint green from brand */
-    --brand-blue: 210 85% 55%; /* Blue highlight */
-    --brand-yellow: 45 95% 65%; /* Yellow highlight */
+    /* Elegant Brand Colors */
+    --brand-mint: 165 60% 50%; /* Professional mint */
+    --brand-blue: 210 100% 60%; /* Vibrant blue */
+    --brand-yellow: 45 100% 60%; /* Clean yellow */
+    --brand-gradient: linear-gradient(135deg, hsl(165 60% 50%), hsl(210 100% 60%));
     
-    --questionnaire-bg: 210 20% 97%; /* Soft blue-tinted background */
-    --questionnaire-text: 210 15% 15%; /* Soft dark text */
-    --questionnaire-muted: 210 8% 45%; /* Gentle muted text */
+    --questionnaire-bg: 225 12% 10%; /* Slightly lighter for forms */
+    --questionnaire-text: 210 20% 95%; /* Clean white text */
+    --questionnaire-muted: 210 15% 65%; /* Refined muted text */
     
-    /* Blue theme variant */
-    --blue-theme-start: 210 65% 15%; /* #0e2a47 */
-    --blue-theme-end: 217 55% 20%; /* #102b54 */
+    /* Professional gradients */
+    --gradient-bg: linear-gradient(135deg, hsl(225 15% 8%) 0%, hsl(225 20% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(225 20% 12%) 0%, hsl(225 15% 10%) 100%);
     
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card: 225 20% 12%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover: 225 20% 12%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 165 60% 50%;
+    --primary-foreground: 225 15% 8%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 225 25% 15%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 225 20% 15%;
+    --muted-foreground: 210 15% 70%;
 
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 225 25% 15%;
+    --accent-foreground: 210 20% 95%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 20% 95%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 9%;
+    --border: 225 20% 20%;
+    --input: 225 20% 15%;
+    --ring: 165 60% 50%;
 
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
+    --success: 142 76% 50%;
+    --success-foreground: 225 15% 8%;
 
     --radius: 0.75rem;
 
