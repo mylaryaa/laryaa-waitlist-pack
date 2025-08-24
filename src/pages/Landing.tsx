@@ -80,7 +80,7 @@ const Landing = () => {
         </section>
 
         {/* New Comparison Section */}
-        <section className="mt-24 sm:mt-32 max-w-4xl mx-auto px-4">
+        <section id="about" className="mt-24 sm:mt-32 max-w-4xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[hsl(var(--heading-text))] mb-6 sm:mb-8">
             Built for SMBs, Not Enterprises
           </h2>
