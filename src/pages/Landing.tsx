@@ -6,8 +6,9 @@ const Landing = () => {
   
   return (
     <div className="bg-[hsl(var(--background))] text-[hsl(var(--body-text))] antialiased min-h-screen font-inter">
-      <main className="mx-auto max-w-6xl px-6 py-16">
-        <header className="flex items-center justify-between mb-12 sm:mb-20">
+      {/* Sticky Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(var(--background))]/80 backdrop-blur-md border-b border-[hsl(var(--border))]/20">
+        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
             <div className="flex items-center gap-2 sm:gap-3 px-2 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-mint/10 to-brand-blue/10 border border-brand-mint/20 backdrop-blur-sm transition-all duration-300 group-hover:from-brand-mint/20 group-hover:to-brand-blue/20">
               <img 
@@ -24,7 +25,10 @@ const Landing = () => {
             <a className="hover:text-[hsl(var(--brand-mint))] transition-colors font-medium" href="#about">About</a>
             <a className="hover:text-[hsl(var(--brand-mint))] transition-colors font-medium" href="#contact">Contact</a>
           </nav>
-        </header>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-6xl px-6 pt-32 pb-16">
 
         <section className="text-center max-w-4xl mx-auto px-4">
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight text-[hsl(var(--heading-text))]">
