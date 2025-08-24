@@ -49,7 +49,7 @@ const Landing = () => {
         </section>
 
         {/* New Features Section */}
-        <section className="mt-24 sm:mt-40 grid gap-6 sm:gap-8 md:grid-cols-3 max-w-6xl mx-auto px-4">
+        <section id="features" className="mt-24 sm:mt-40 grid gap-6 sm:gap-8 md:grid-cols-3 max-w-6xl mx-auto px-4">
           <div className="rounded-2xl sm:rounded-3xl border border-[hsl(var(--border))] p-6 sm:p-10 bg-[hsl(var(--card))] backdrop-blur-sm hover:shadow-2xl hover:shadow-[hsl(var(--brand-mint))]/10 transition-all duration-500 transform hover:-translate-y-2">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[hsl(var(--brand-mint))]/20 to-[hsl(var(--brand-blue))]/20 flex items-center justify-center mb-4 sm:mb-6">
               <span className="text-xl sm:text-2xl">👥</span>
