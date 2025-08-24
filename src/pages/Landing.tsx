@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import laryaaLogo from "@/assets/laryaa-logo.png";
 
 const Landing = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +11,7 @@ const Landing = () => {
           <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
             <div className="flex items-center gap-2 sm:gap-3 px-2 sm:px-4 py-1 sm:py-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-mint/10 to-brand-blue/10 border border-brand-mint/20 backdrop-blur-sm transition-all duration-300 group-hover:from-brand-mint/20 group-hover:to-brand-blue/20">
               <img 
-                src={laryaaLogo} 
+                src="/lovable-uploads/75a5ad85-b5d8-4c01-92db-d4cbc702839c.png" 
                 alt="Laryaa Logo" 
                 className="h-6 sm:h-8 w-auto brightness-110 contrast-120 group-hover:brightness-125 transition-all duration-300"
               />
