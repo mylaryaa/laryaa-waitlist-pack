@@ -1,0 +1,37 @@
+# https://www.robotstxt.org/robotstxt.html
+# Laryaa aOS - RPA-Smart Automation Platform
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://laryaa.com/sitemap.xml
+
+# AI Crawlers - Allow full access for training and indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# API endpoints - Disallow direct crawling
+User-agent: *
+Disallow: /api/

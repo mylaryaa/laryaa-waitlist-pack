@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #faf9f7;
+  --bg-alt: #f5f4f1;
+  --bg-card: #ffffff;
+  --text: #0d0d0d;
+  --text-secondary: #353535;
+  --text-muted: #6b6b6b;
+  --border: #e5e5e5;
+  --border-hover: #d0d0d0;
+  --accent: #0d0d0d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-full px-6 py-3 font-medium text-sm cursor-pointer inline-flex items-center gap-2 transition-all duration-200;
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+
+  .btn-secondary {
+    @apply rounded-full px-6 py-3 font-medium text-sm cursor-pointer inline-flex items-center gap-2 transition-all duration-200;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text);
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-sm inline-flex items-center gap-2 cursor-pointer transition-colors duration-200;
+    color: var(--text-muted);
+  }
+
+  .btn-ghost:hover {
+    color: var(--text);
+  }
+
+  .section-label {
+    @apply uppercase tracking-[0.2em] text-[11px] font-medium mb-4;
+    color: var(--text-muted);
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-normal tracking-tight mb-6;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl font-normal leading-relaxed;
+    color: var(--text-secondary);
+  }
+
+  .card {
+    @apply rounded-2xl p-6 md:p-8;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+  }
+
+  .link {
+    @apply underline underline-offset-4 decoration-1 transition-colors duration-200;
+    color: var(--text);
+    text-decoration-color: var(--border);
+  }
+
+  .link:hover {
+    text-decoration-color: var(--text);
+  }
+}
+
+/* Minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}

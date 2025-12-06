@@ -1,0 +1,126 @@
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import {
+  organizationSchema,
+  websiteSchema,
+  softwareApplicationSchema,
+  faqSchema,
+} from '@/lib/structured-data'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#faf9f7',
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://laryaa.com'),
+  title: {
+    default: 'Laryaa aOS – RPA-Smart Automation Platform | Project KONDOM',
+    template: '%s | Laryaa aOS',
+  },
+  description:
+    'Laryaa aOS – The world\'s first RPA-smart automation platform. Fast like RPA (227ms/action), smart like AI, private by design. HIPAA, GDPR, PCI-DSS compliant. Powered by Project KONDOM zero-trust architecture.',
+  keywords: [
+    'RPA automation',
+    'AI automation',
+    'enterprise automation',
+    'HIPAA compliant automation',
+    'GDPR compliant',
+    'PCI-DSS automation',
+    'healthcare automation',
+    'finance automation',
+    'legal automation',
+    'zero-trust automation',
+    'self-healing RPA',
+    'offline automation',
+    'Project KONDOM',
+    'Laryaa aOS',
+  ],
+  authors: [{ name: 'Raju', url: 'https://laryaa.com' }],
+  creator: 'Laryaa',
+  publisher: 'Laryaa',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://laryaa.com',
+    siteName: 'Laryaa aOS',
+    title: 'Laryaa aOS – RPA-Smart Automation Platform',
+    description:
+      'Fast Like RPA. Smart Like AI. Private by Design. The world\'s first RPA-smart automation platform powered by Project KONDOM zero-trust architecture.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Laryaa aOS – RPA-Smart Automation Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Laryaa aOS – RPA-Smart Automation Platform',
+    description:
+      'Fast Like RPA. Smart Like AI. Private by Design. 10x faster than vision agents, 100% HIPAA compliant, 0% maintenance cost.',
+    images: ['/og-image.png'],
+    creator: '@laryaa_aos',
+  },
+  alternates: {
+    canonical: 'https://laryaa.com',
+  },
+  category: 'technology',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Structured Data for AI Scraping */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      </head>
+      <body className="font-sans antialiased">{children}</body>
+    </html>
+  )
+}
