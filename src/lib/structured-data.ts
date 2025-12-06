@@ -26,7 +26,7 @@ export const softwareApplicationSchema = {
   name: 'Laryaa aOS',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Windows, macOS, Linux',
-  description: 'RPA-smart automation platform with 227ms average action time, zero-trust security, and self-healing capabilities.',
+  description: 'RPA-smart automation platform with zero-trust security and self-healing capabilities. Fast like RPA, smart like AI.',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -34,7 +34,7 @@ export const softwareApplicationSchema = {
     description: 'Early access program',
   },
   featureList: [
-    '227ms average action time - 10x faster than vision agents',
+    'RPA-level speed - faster than vision-based agents',
     'Zero-trust security - no screenshots to cloud',
     'HIPAA, GDPR, PCI-DSS compliant by design',
     'Self-healing - automatically adapts to UI changes',
@@ -72,7 +72,7 @@ export const faqSchema = {
       name: 'What is Laryaa aOS?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Laryaa aOS is the world\'s first RPA-smart automation platform that combines the speed of traditional RPA (227ms per action) with AI-level intelligence and zero-trust security. It\'s designed for enterprises in healthcare, finance, and legal industries where privacy and compliance are non-negotiable.',
+        text: 'Laryaa aOS is the world\'s first RPA-smart automation platform that combines the speed of traditional RPA with AI-level intelligence and zero-trust security. It\'s designed for enterprises in healthcare, finance, and legal industries where privacy and compliance are non-negotiable.',
       },
     },
     {
@@ -80,7 +80,7 @@ export const faqSchema = {
       name: 'How fast is Laryaa aOS compared to other automation tools?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Laryaa aOS averages 227ms per action, making it 10x faster than vision-based agents like OpenAI Atlas (1500-2500ms). It maintains RPA-level speed while providing AI-level adaptability.',
+        text: 'Laryaa aOS delivers RPA-level speed, making it significantly faster than vision-based agents. It maintains fast execution while providing AI-level adaptability.',
       },
     },
     {

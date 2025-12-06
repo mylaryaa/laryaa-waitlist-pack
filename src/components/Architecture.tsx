@@ -21,37 +21,33 @@ export default function Architecture() {
           <ol className="list-decimal pl-4 text-gray-400 leading-relaxed space-y-1.5">
             <li>
               <strong className="text-gray-200">
-                UI Change Detection (~100ms)
+                Capture & Protect
               </strong>
               <br />
-              Perceptual hash comparison detects window resize, theme change, or
-              app update.
+              UI state is captured locally. Your sensitive data stays on your device.
             </li>
             <li>
               <strong className="text-gray-200">
-                Fast Path (90% of runs) (~150ms)
+                Plan Intelligently
               </strong>
               <br />
-              If UI unchanged: Use cached coordinates from Token Binding Table.
+              AI plans your workflow while your data remains private. Works offline too.
             </li>
             <li>
               <strong className="text-gray-200">
-                Healing Path (10% of runs) (~1700ms first, ~150ms cached after)
+                Execute Locally
               </strong>
               <br />
-              If UI changed: Invoke 5-Anchor Fusion (OCR, Role, Spatial,
-              Context, Semantic).
+              All actions run on your machine through native automation.
             </li>
             <li>
-              <strong className="text-gray-200">Living Cache Update</strong>
+              <strong className="text-gray-200">Adapt Automatically</strong>
               <br />
-              Update TBT with healed coordinates, reset to fast path for future
-              runs.
+              When apps change, we adapt automatically. No manual maintenance.
             </li>
           </ol>
           <p className="mt-2 text-[11px] text-gray-500">
-            The result: RPA-level speed for steady-state operations and
-            AI-level robustness for UI changes.
+            RPA-level speed. AI-level robustness. Enterprise-grade privacy.
           </p>
         </article>
 
@@ -66,10 +62,8 @@ export default function Architecture() {
             <strong>O</strong>n <strong>M</strong>achine
           </p>
           <p className="text-gray-400 leading-relaxed">
-            A zero-trust architecture that ensures sensitive data never leaves
-            the device. PII is tokenized before planning, execution happens
-            locally with rehydration, and healing operates on local UI state
-            without cloud screenshots.
+            A zero-trust architecture where sensitive data never leaves your device during planning. 
+            The cloud reasons on sanitized structure while all execution happens locally.
           </p>
         </article>
       </div>

@@ -3,39 +3,39 @@ import { Zap, Shield, Wrench, Globe, DollarSign, Target } from 'lucide-react'
 const features = [
   {
     icon: Zap,
-    title: 'Lightning Fast',
+    title: 'Designed for Speed',
     description:
-      'Average 227ms per action – 10x faster than vision-based agents like OpenAI Atlas and Perplexity Browser. Maintains RPA-level speed while staying intelligent.',
+      'Optimized execution path for common operations. Caches UI state locally for fast repeated actions without cloud round-trips.',
   },
   {
     icon: Shield,
-    title: 'Zero-Trust Security',
+    title: 'Zero-Trust Privacy',
     description:
-      'No screenshots to cloud. No PII exposure. HIPAA, GDPR, and PCI-DSS compliant by design. Perfect for healthcare, finance, and legal industries.',
+      'Sensitive data is tokenized before planning. Cloud never sees PII, screenshots, or credentials. Designed for HIPAA and GDPR compliance.',
   },
   {
     icon: Wrench,
-    title: 'Self-Healing',
+    title: 'Self-Healing Automation',
     description:
-      'Automatically adapts to UI changes – window resize, theme change, app updates. Zero manual maintenance unlike traditional RPA that breaks silently.',
+      'Adapts to UI changes automatically using multi-anchor detection. No manual maintenance when apps update.',
   },
   {
     icon: Globe,
     title: 'Offline-First',
     description:
-      'Works without internet. Full data sovereignty. No vendor lock-in. Deploy on-premise or in air-gapped environments.',
+      'Works without internet using on-device planning. Full data sovereignty with no vendor lock-in.',
   },
   {
     icon: DollarSign,
-    title: 'Cost Effective',
+    title: 'No API Dependencies',
     description:
-      'Zero marginal cost for 90% of executions (cached path). No expensive vision API calls. $0 vs $10–50 per 1,000 actions.',
+      'Automates any application through the UI layer. No integration required, no API costs, works with legacy systems.',
   },
   {
     icon: Target,
-    title: 'Production Ready',
+    title: 'Pioneer Program',
     description:
-      'Not a demo. Not a prototype. Battle-tested architecture combining RPA speed with AI robustness.',
+      'Join early adopters shaping the future of privacy-first automation. Get early access to new capabilities.',
   },
 ]
 

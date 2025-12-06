@@ -6,7 +6,7 @@ const highlights = [
   {
     icon: Zap,
     title: 'Lightning Fast',
-    description: '227ms average action time. 10x faster than vision-based agents.',
+    description: 'RPA-level speed with AI-level intelligence. Faster than vision-based agents.',
   },
   {
     icon: Shield,

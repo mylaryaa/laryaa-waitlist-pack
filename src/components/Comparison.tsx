@@ -1,33 +1,33 @@
 const comparisonData = [
   {
-    feature: 'Speed (ms/action)',
-    legacy: '~50ms ⚡',
-    vision: '1500-2500ms 🐌',
-    laryaa: '~227ms ⚡⚡',
+    feature: 'Execution Speed',
+    legacy: 'Fast ⚡',
+    vision: 'Slow 🐌',
+    laryaa: 'Fast ⚡',
   },
   {
     feature: 'Self-Healing',
     legacy: '✗ Manual fixes',
     vision: '✓ Auto-adapts',
-    laryaa: '✓✓ Auto-adapts',
+    laryaa: '✓✓ Multi-anchor',
   },
   {
-    feature: 'Privacy (Zero Cloud)',
+    feature: 'Data Privacy',
     legacy: '✓ Local',
     vision: '✗ Cloud screenshots',
     laryaa: '✓✓ Zero-Trust',
   },
   {
-    feature: 'HIPAA/GDPR Compliant',
+    feature: 'Compliance Ready',
     legacy: '~ Possible',
     vision: '✗ Fails',
-    laryaa: '✓✓ Built-in',
+    laryaa: '✓✓ Designed for it',
   },
   {
-    feature: 'Maintenance Cost',
-    legacy: '✗ 30-40% annual',
-    vision: '✓ 0%',
-    laryaa: '✓✓ 0%',
+    feature: 'Maintenance',
+    legacy: '✗ High',
+    vision: '✓ Low',
+    laryaa: '✓✓ Self-healing',
   },
   {
     feature: 'Offline Capable',
@@ -36,22 +36,16 @@ const comparisonData = [
     laryaa: '✓✓ Offline-first',
   },
   {
-    feature: 'Cost per 1000 Actions',
-    legacy: '~$0',
-    vision: '$10-50',
-    laryaa: '~$0',
+    feature: 'API Dependencies',
+    legacy: '✗ Per-app setup',
+    vision: '✓ None',
+    laryaa: '✓✓ None',
   },
   {
-    feature: 'UI Change Adaptation',
+    feature: 'UI Change Handling',
     legacy: '✗ Breaks',
-    vision: '✓ Adapts (slow)',
-    laryaa: '✓✓ Adapts (fast)',
-  },
-  {
-    feature: 'Production Ready',
-    legacy: '✗ High maintenance',
-    vision: '✗ Too slow',
-    laryaa: '✓✓ Battle-tested',
+    vision: '✓ Adapts',
+    laryaa: '✓✓ Adapts',
   },
 ]
 
@@ -72,16 +66,9 @@ export default function Comparison() {
       </div>
 
       <div className="card-elevated p-4">
-        <div
-          className="w-full overflow-x-auto rounded-xl"
-          style={{
-            border: '1px solid rgba(31, 41, 55, 0.9)',
-            background:
-              'radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.96))',
-          }}
-        >
+        <div className="comparison-table-wrapper w-full overflow-x-auto rounded-xl border border-gray-800/90">
           <table className="w-full border-collapse text-xs min-w-[640px]">
-            <thead style={{ background: 'rgba(15, 23, 42, 0.95)' }}>
+            <thead className="bg-slate-900/95">
               <tr>
                 <th className="px-2.5 py-2 text-left font-semibold text-gray-200 text-[11px] border-b border-gray-800/80">
                   Feature
@@ -93,11 +80,7 @@ export default function Comparison() {
                   Vision Agents (OpenAI Atlas, Perplexity)
                 </th>
                 <th
-                  className="px-2.5 py-2 text-left font-semibold text-gray-200 text-[11px] border-b border-gray-800/80"
-                  style={{
-                    background:
-                      'linear-gradient(90deg, rgba(56, 189, 248, 0.16), rgba(129, 140, 248, 0.18))',
-                  }}
+                  className="px-2.5 py-2 text-left font-semibold text-gray-200 text-[11px] border-b border-gray-800/80 bg-gradient-to-r from-sky-400/16 to-indigo-400/18"
                 >
                   Laryaa aOS (Project KONDOM)
                 </th>
@@ -116,11 +99,7 @@ export default function Comparison() {
                     {row.vision}
                   </td>
                   <td
-                    className="px-2.5 py-2 border-b border-gray-800/80"
-                    style={{
-                      background:
-                        'linear-gradient(90deg, rgba(56, 189, 248, 0.16), rgba(129, 140, 248, 0.18))',
-                    }}
+                    className="px-2.5 py-2 border-b border-gray-800/80 bg-gradient-to-r from-sky-400/16 to-indigo-400/18"
                   >
                     <strong className="text-gray-200">{row.laryaa}</strong>
                   </td>

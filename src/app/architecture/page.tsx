@@ -11,46 +11,46 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: '01',
-    title: 'UI Change Detection',
-    time: '~100ms',
-    description: 'Perceptual hash comparison detects window resize, theme change, or app update instantly.',
+    title: 'Detect Changes',
+    time: 'Instant',
+    description: 'Instantly recognizes when applications update, resize, or change themes.',
   },
   {
     number: '02',
-    title: 'Fast Path',
-    time: '~150ms',
-    description: 'If UI unchanged: Use cached coordinates from Token Binding Table. This covers 90% of all runs.',
+    title: 'Fast Execution',
+    time: 'Optimized',
+    description: 'Uses local cached paths for maximum speed. Most operations take the fast path.',
   },
   {
     number: '03',
-    title: 'Healing Path',
-    time: '~1700ms → ~150ms',
-    description: 'If UI changed: Invoke 5-Anchor Fusion (OCR, Role, Spatial, Context, Semantic). First run heals, subsequent runs use cache.',
+    title: 'Adaptive Recovery',
+    time: 'Automatic',
+    description: 'When UI changes, multi-signal matching automatically finds the right elements. No manual updates needed.',
   },
   {
     number: '04',
-    title: 'Living Cache Update',
-    time: 'Continuous',
-    description: 'Update Token Binding Table with healed coordinates, reset to fast path for all future runs.',
+    title: 'Continuous Improvement',
+    time: 'Always',
+    description: 'The system learns and gets faster with every run. Recovery paths become fast paths.',
   },
 ]
 
 const principles = [
   {
     title: 'Zero Cloud Screenshots',
-    description: 'Unlike vision agents, we never send screenshots to external servers. All visual processing happens locally.',
+    description: 'All visual processing stays on your device. We never send screenshots to external servers.',
   },
   {
-    title: 'PII Tokenization',
-    description: 'Sensitive data is tokenized before planning. Execution happens locally with rehydration.',
+    title: 'PII Protection',
+    description: 'Sensitive data is never sent externally. Only you have access to your information.',
   },
   {
-    title: 'Local UI State',
-    description: 'Healing operates on local UI state only. No external dependencies for self-repair.',
+    title: 'Local Processing',
+    description: 'Everything runs on your machine. No external dependencies for any operation.',
   },
   {
     title: 'Air-Gap Ready',
-    description: 'Deploy in completely disconnected environments. Full functionality without internet.',
+    description: 'Works completely offline. Deploy in disconnected environments with full functionality.',
   },
 ]
 

@@ -1,0 +1,964 @@
+TITLE OF THE INVENTION
+Hybrid AI Agent System with Zero-Trust Execution Architecture Featuring On-Device Execution, Privacy-Preserving Split-State Planning, Sanitized Cloud Reasoning, and Local Action Execution for Cross-Application Automation
+
+ABSTRACT
+This invention discloses a hybrid AI agent system that enforces a zero-trust execution architecture by separating perception and planning from final execution. A local sanitization layer transforms raw user-interface state into a privacy-preserving Semantic Skeleton by detecting sensitive values, replacing them with deterministic placeholder tokens, and generating a Token Binding Table (TBT). Only the sanitized skeleton is transmitted to a local or cloud planner, which produces a structured plan referencing placeholder tokens. All sensitive values, deterministic rehydration, validation, and UI actions occur strictly on the device. A Zero-Trust Execution Gate enforces mapping determinism and policy compliance before any OS-level action executes. A Self-Healing module uses multimodal anchor fusion—OCR, accessibility roles, spatial geometry, semantic labels, and relational context—to adapt to UI changes. The system supports offline planning and enables cross-application automation without requiring APIs, ensuring sensitive data never leaves the device during planning.
+FIELD OF THE INVENTION
+The present invention relates to artificial intelligence systems, human–computer interaction, user interface automation, and privacy-preserving computing. More particularly, the invention relates to a hybrid cloud–local AI agent architecture in which:
+cloud-based large language models (LLMs) perform planning or reasoning on sanitized, non-sensitive inputs, and
+local on-device components, including local LLMs or rule-based executors, perform actual UI actions across software applications and operating system environments.
+The invention further relates to zero-trust execution, cross-application automation without APIs, and privacy-preserving task orchestration.BACKGROUND OF THE INVENTION
+Problems with Existing AI Agents
+Traditional cloud-based AI agents suffer from:
+Privacy limitations — sensitive data must be uploaded to cloud servers for reasoning.
+Execution restrictions — cloud agents cannot act directly on local devices.
+Brittle UI automation — existing RPA systems fail when UI layouts change.
+Dependency on app APIs — most applications provide no automation API.
+Lack of offline functionality — cloud agents fail without the Internet.
+Problems in Regulated Industries (Healthcare, Finance, Government)
+Industries such as hospitals and financial systems require:
+strict PII protection
+local-only data handling
+auditability
+verifiable execution
+Cloud-first AI agents cannot meet these requirements.
+Limitations of LAMs, RPA, and Modern Agents
+Large Action Models (LAMs) require demonstration learning → overlaps with Rabbit’s LAM patent.
+Pixel-based screen recognition → overlaps with Apple’s patents.
+Pure cloud planning → privacy violations.
+Pure local agents → limited reasoning capability.
+None of them solve:
+split-state reasoning,
+zero-trust data boundaries,
+automatic UI self-healing,
+local LLM fallback,
+sanitized planning,
+cross-app execution without APIs.
+NOVELTY OVER PRIOR ART
+
+The disclosed system differs fundamentally from existing RPA, LAM, cloud agents, and GUI automation technologies. No existing system provides:
+(1) A deterministic zero-trust boundary where raw UI content is transformed into a reversible placeholder-based semantic skeleton before being sent to a planner.
+(2) Split-state planning where cloud-based LLM planning is performed exclusively on sanitized input while all sensitive execution context remains strictly local.
+(3) A local rehydration mechanism that restores placeholders into sensitive values using local contextual binding and anchor-based mapping.
+(4) A self-healing execution loop combining OCR anchors, semantic relationships, and adaptive selector realignment.
+(5) Cross-application execution without APIs using a unified hybrid actor that blends OS-level input injection with LLM reasoning.
+These technical improvements provide non-obvious advancements over prior GUI automation and agentic systems.
+SUMMARY OF THE INVENTION
+The invention provides a new Hybrid AI Agent System that:
+1. Splits Reasoning Between Cloud and Local
+Cloud LLM performs high-level planning only on sanitized, abstracted representations of UI state.
+Local LLM or rule engine performs fallback planning when offline.
+2. Executes All Actions Locally
+A local executor performs actions such as:
+mouse/keyboard events
+Android/iOS accessibility actions
+clipboard operations
+switching apps
+typing, clicking, scrolling
+All without exposing sensitive data externally.
+3. Enforces a Zero-Trust Privacy Model
+Sensitive data is never transmitted to the cloud.
+A sanitization layer produces semantic skeletons.
+Execution happens fully on-device.
+Definition: Semantic Skeleton
+A data representation that preserves UI structure, element hierarchy, relative layout, action affordances, and semantic labels, while removing or abstracting all user-specific or sensitive content.
+
+4. Provides Self-Healing Execution
+If the UI changes, the local agent:
+detects visual variance
+adapts plan steps
+recalibrates coordinates or selectors
+repairs the automation script locally
+5. Enables Cross-Application Automation Without APIs
+The agent works on:
+desktop OS (Windows/macOS/Linux)
+mobile OS (Android)
+across applications that do not provide an API.
+6. Supports Offline Operation
+When the network is unavailable:
+local LLM performs planning
+cached embeddings and templates assist
+execution proceeds without cloud access
+7. Allows Regulated-Industry Deployment
+All sensitive PII stays local → suitable for:
+hospitals
+diagnostic centers
+banks
+legal workflows
+enterprise desktops
+4. OBJECTS OF THE INVENTION
+The primary objects of the present invention are:
+To provide a hybrid AI agent capable of performing high-level reasoning through cloud LLMs or local on-device LLMs, while ensuring all sensitive user data remains local to the device.
+To implement a zero-trust privacy boundary, wherein sensitive or personally identifiable information (PII) is removed, sanitized, replaced, or abstracted before any cloud-based computation occurs.
+To enable cross-application automation across desktop and mobile operating systems without requiring application-specific APIs, SDKs, or developer integrations.
+To ensure safe and deterministic execution, with all user-visible actions performed exclusively through local mechanisms such as accessibility services, operating system event injection, or secure local command interfaces.
+To provide a split-state planning architecture, where planning functions may be delegated to either:
+a cloud-based LLM,
+a local on-device LLM,
+or a hybrid planning pipeline depending on connectivity, data sensitivity, or execution context.
+To support offline-first execution, enabling the agent to continue operating when Internet access is unavailable, degraded, or intentionally disabled.
+To provide a system capable of self-healing, adapting UI selectors, coordinates, or contextual anchors based on visual changes, layout shifts, or version updates of software applications.
+To deliver a general-purpose automation layer, enabling the automation of workflows in highly regulated industries such as healthcare, finance, legal, and government without exposing sensitive data externally.
+To provide secure, verifiable, and auditable execution, producing local logs, hashes, and execution traces that prove no sensitive information was transmitted to the cloud.
+To build a scalable, modular architecture, capable of supporting future extensions, local model upgrades, cloud agent improvements, hardware accelerators, and cross-device coordination.
+5. BRIEF DESCRIPTION OF THE DRAWINGS (Upcoming Diagrams)
+The invention will be described with reference to the accompanying diagrams provided in Part 2, including:
+FIG. 1 — Hybrid Agent System Architecture Overview
+Shows the relationship between:
+user device
+zero-trust sanitization layer
+cloud reasoning module
+local execution engine
+fallback local LLM
+FIG. 2 — Zero-Trust Sanitization Pipeline
+Shows the flow:
+ raw UI → PII detection → redaction → semantic skeleton → cloud plan → rehydration → executor.
+FIG. 3 — Execution Workflow
+Step-by-step depiction of:
+ plan → verification → action injection → UI adaptation → loop → completion.
+FIG. 4 — Self-Healing Execution Loop
+Illustrates:
+ variance detection → adaptation → re-alignment → resumed execution.
+FIG. 5 — Offline Fallback Architecture
+Explains:
+ cloud → local planning switch → cached templates → final execution
+PART 2 — DRAWINGS & DESCRIPTION OF DRAWINGS (ASCII)FIG. 1 — Hybrid Agent System Architecture Overview
+             +-------------------------------+
+                 |         Cloud Layer           |
+                 |   (Sanitized Planning Only)   |
+                 |-------------------------------|
+                 |  Cloud LLM / Planner Module   |
+                 |  • Receives sanitized state   |
+                 |  • Produces high-level plan   |
+                 +-------------------------------+
+                        ↑               |
+     Sanitized Token    |               |  Sanitized Plan /
+     Stream             |               |  Script
+     (DATA EXCLUSION)   |               |  (Dynamic Logic)
+                        |               |
++-----------------------|---------------|------------------------+
+|                       |               |                        |
+|            +----------|---------------|-----------+            |
+|            |      Zero-Trust Boundary             |            |
+|            |      (Local Sanitization)            |            |
+|            +----------|---------------|-----------+            |
+|                       |               |                        |
+|          Raw UI State |               | Rehydrated Actions     |
+|                       ↓               ↓                        |
+|        +--------------------------------------+                |
+|        |        Local Device Layer            |                |
+|        |--------------------------------------|                |
+|        |   Local LLM (Fallback Planner)       |                |
+|        |   • Used offline                     |                |
+|        |   • Optional secondary reasoning     |                |
+|        +--------------------------------------+                |
+|                             ↓                                  |
+|        +--------------------------------------+                |
+|        |         Local Execution Engine       |                |
+|        |--------------------------------------|                |
+|        | • Executes actions (click, type)     |                |
+|        | • OS/Accessibility layer             |                |
+|        | • Verifies each action               |                |
+|        +--------------------------------------+                |
+|                             ↓                                  |
+|        +--------------------------------------+                |
+|        | Applications / OS Environment        |                |
+|        +--------------------------------------+                |
++----------------------------------------------------------------+
+
+
+Description:
+ FIG. 1 illustrates the high-level invention structure: cloud planner receives only sanitized data, while all sensitive data and all actions remain on-device. Planning may be executed by cloud or local LLM.FIG. 2 — Zero-Trust Sanitization Pipeline
+   +---------------------+
+   |   Raw UI Context    |
+   | (Multimodal Fusion) |
+   +----------+----------+
+              |
+              v
+   +---------------------+
+   | PII Detection       |
+   | (names, IDs, email) |
+   +----------+----------+
+              |
+              v
+   +---------------------+         +---------------------------+
+   | Redaction Engine    |         | Latent Semantic Cache     |
+   | Replace → Tokens    | <-----> | (Vector Store of UI IDs)  |
+   |   “John Doe” → <P1> |         +---------------------------+
+   +----------+----------+
+              |
+              v
+   +----------------------------+
+   | Semantic Skeleton Builder  |
+   |  • Abstract UI state       |
+   |  • Keep structure only     |
+   |  • Remove all PII          |
+   +-----------+----------------+
+               |
+        Sanitized State
+               |
+               v
+   +-----------------------------+
+   | Cloud Planner (LLM)         |
+   | Generates Plan / Script     |
+   +--------------+--------------+
+                  |
+                  v
+     +----------------------------+
+     | Local Rehydration Layer    |
+     | (Restores context for UI)  |
+     +--------------+-------------+
+                  |
+                  v
+        +--------------------------------+
+        | Local Executor (Clicks/Keys)   |
+        +--------------------------------+
+
+Description:
+ FIG. 2 shows how raw UI data is transformed through PII detection → redaction → semantic skeleton → cloud planning → local rehydration → safe execution.FIG. 3 — Execution Workflow Loop
+     +-------------------------+
+      | Receive Plan (JSON)     |
+      +-----------+-------------+
+                  |
+                  v
+      +-------------------------+
+      | Validate & Verify Plan  |
+      | • Schema check          |
+      | • Safety filters        |
+      +-----------+-------------+
+                  |
+                  v
+      +-------------------------+
+      | Execute Step i          |
+      | (Click/Type/OCR/Intent) |
+      +-----------+-------------+
+                  |
+                  v
+      +-------------------------+
+      | Observe Result          |
+      | (UI capture/feedback)   |
+      +-----------+-------------+
+                  |
+             Success? ----No----+
+                  |              |
+                 Yes             v
+                  |       +---------------+
+                  v       | Self-Healing  |
+      +-------------------------+           |
+      | Continue to Step i+1    |<----------+
+      +-----------+-------------+
+                  |
+                  v
+      +-------------------------+
+      | Workflow Completed      |
+      +-------------------------+
+Description:
+ FIG. 3 illustrates the step-by-step execution loop where each planned action is executed, observed, validated, and optionally self-healed when mismatches are seen.FIG. 4 — Self-Healing Loop
+      +-------------------------------+
+       | Action Fails (UI Mismatch)    |
+       +---------------+---------------+
+                       |
+                       v
+       +-------------------------------+
+       | Variance Detection            |
+       | (Multimodal Semantic Fusion)  |
+       | • OCR + Accessibility Tree    |
+       | • Spatial Graph Comparison    |
+       +---------------+---------------+
+                       |
+                       v
+       +-------------------------------+
+       | Re-Alignment Layer            |
+       | • Update coordinates          |
+       | • Update semantic cache       |
+       | • Adjust anchor points        |
+       +---------------+---------------+
+                       |
+                       v
+       +-------------------------------+
+       | Retry Corrected Action        |
+       +---------------+---------------+
+Description:
+ FIG. 4 demonstrates how the agent automatically corrects broken automations by detecting visual differences, adjusting anchors, and retrying execution without cloud involvement. FIG. 5 — Offline Fallback Architecture
+                Internet Unavailable
+                         |
+                         v
+           +------------------------------+
+           | Switch to Local Planning     |
+           +---------------+--------------+
+                           |
+                           v
+           +------------------------------+
+           | Local LLM (Small Model)      |
+           | • Rule-based or SLM          |
+           | • Generates Plan JSON        |
+           +---------------+--------------+
+                           |
+                           v
+           +------------------------------+
+           | Local Execution Engine       |
+           +---------------+--------------+
+                           |
+                           v
+           +------------------------------+
+           | Workflow Completed Locally   |
+           +------------------------------+
+
+Description:
+ FIG. 5 illustrates how the system works fully offline using a local small language model (SLM) or on-device reasoning component.
+PART 3 — DETAILED DESCRIPTION OF THE INVENTIONOverview
+The present invention discloses a hybrid AI agent system that performs:
+Cloud-based reasoning on sanitized and privacy-preserving state representations, and
+On-device execution of all actions in a zero-trust architecture, ensuring that no sensitive information is shared outside the user’s device.
+The system enables cross-application automation, task sequencing, and agentic UI interaction across desktop and mobile environments.
+It provides a split-state AI model:
+Cloud: high-level planning
+Local: execution, authentication, sensitive data usage, fallback planning, and UI self-healing
+This hybrid architecture solves the major limitations of existing AI agents, RPA systems, and LAM-based agents.3.0 DEFINITIONS:
+Semantic Skeleton: A structural abstraction of the UI consisting of node types, semantic roles, bounding boxes, layout relationships, and anchor metadata, explicitly excluding raw text, screenshots, or sensitive data.
+ Token Binding Table (TBT): A deterministic mapping structure generated during sanitization that links placeholder tokens to UI node paths, anchor sets, and contextual hashes, enabling one-to-one rehydration.
+ Rehydration: The local-only process of replacing placeholder tokens with real sensitive values using the TBT, ensuring accurate execution without exposing sensitive content externally.
+ Zero-Trust Execution Gate: A validation layer immediately before execution which enforces deterministic token mapping, safety policies, and data boundaries.
+ Self-Healing: A variance-resolution mechanism that uses fused anchors (OCR, accessibility, semantic, geometric, relational) to locate elements when UI layouts change.
+ Adaptive Execution Modality: A hybrid execution model where the system may perform actions through either UI-based interaction or API-based interaction depending on availability, determinism, and zero-trust policy.
+3.1 Core Components of the System
+The invention consists of the following components:A. User Interface Capture Layer
+This layer captures the current state of the user interface using one or more of:
+Accessibility APIs
+Screen captures
+OCR extraction
+Window metadata
+Application structure
+This raw state may include sensitive content.
+This raw state never leaves the device.B. Zero-Trust Sanitization Layer
+This is one of the novel components of the invention.
+The sanitization pipeline consists of:
+PII Detection Module
+ Detects sensitive items:
+
+
+names
+emails
+phone numbers
+medical IDs
+patient information
+financial details
+unique identifiers
+Redaction Module
+ Sensitive data is replaced with placeholders:
+
+
+“John Doe” → <P1>
+“Patient #8842” → <ID_4>
+“₹5,000” → <AMOUNT>
+
+
+Semantic Skeleton Builder
+ Constructs a structural representation of the UI state:
+layout
+relationships
+positional information
+action candidates
+Sanitized UI State Generator
+ Produces a condensed state safe for sending to the cloud.
+
+
+This is the zero-trust boundary:
+ Cloud never receives sensitive data.
+Sanitization Rules and Token Schema
+The sanitization module uses deterministic tokenization rules such as:
+• PERSON → <P#>
+• ADDRESS → <ADDR#>
+• MONEY_VALUE → <AMT#>
+• DATE → <DATE#>
+• DOCUMENT_FIELD → <DOC#>
+Each token preserves the semantic role but removes all raw content.
+Tokens carry:
+(1) category,
+(2) ordinal index,
+(3) UI-bound location identifier.
+This allows the cloud planner to reason structurally without reconstructing sensitive data.
+
+Distinction from Document Redaction Systems:
+Unlike conventional Data Loss Prevention (DLP) systems that redact static electronic documents (e.g., PDFs, emails) for archival storage or compliance, the present invention performs real-time redaction of ephemeral UI state trees and accessibility node graphs. This sanitization occurs synchronously within the execution loop exclusively for the purpose of generating executable action plans, rather than for archival storage. Furthermore, the system uniquely employs a 'Rehydration' step to restore the redacted data immediately during execution, a step absent in standard DLP workflows.
+
+Formal Specification of the Semantic Skeleton
+ The system constructs a structural, non-pixel, category-preserving UI graph consisting of:
+Node Type (button, input, container, row, etc.)
+Semantic Role or Label (e.g., “Submit”, “Upload Report”, etc.)
+Bounding Box (x, y, width, height)
+Parent–Child Hierarchy
+Anchor Metadata, including:
+OCR anchor
+Accessibility/role anchor
+Spatial geometric anchor
+Semantic label anchor
+Relational neighbor anchor
+The Semantic Skeleton intentionally excludes all raw UI text, screenshots, pixel tensors, or sensitive values.
+ Every sensitive item is replaced with a Token ID composed of:
+Category (PERSON, ID, AMOUNT, DATE, etc.)
+Ordinal Index
+UI Node Path
+This structure is reversible only on the local device through the rehydration layer.
+
+Deterministic Token–UI Binding Table (TBT)
+ During sanitization, the system generates a Token Binding Table (TBT).
+ For each placeholder token (e.g., <T1>, <P_3>), the TBT stores:
+Token ID
+Token Category
+Semantic Role
+UI Node Path
+Full Anchor Set (OCR + role + spatial + semantic + relational)
+Local Context Hash for that region of the UI
+Rehydration uses this table to ensure a deterministic, one-to-one, verifiable mapping from token → real UI value.
+ If a token cannot be mapped uniquely or safely, execution halts to preserve the zero-trust boundary.C. Cloud-Based Planner (Optional / Hybrid Use)
+When permitted by the sanitization rules and user configuration, the sanitized representation is sent to the cloud planner (LLM).
+The cloud LLM:
+Determines goal achievement steps
+Produces a structured plan (JSON)
+Orders actions
+Infers decision tree nodes
+Handles multi-step workflows
+The cloud LLM never receives:
+PII
+credentials
+raw screenshots
+sensitive texts
+
+
+Only the sanitized semantic skeleton.
+
+If the cloud planner produces an incomplete, ambiguous, unsafe, or hallucinated plan, the local validator rejects the plan and either (a) requests a re-plan from the cloud with additional context, or (b) switches to the local planner.
+
+Plan Formats and Dynamic Code Generation:
+The 'High-Level Plan' generated by the Cloud Planner is not limited to static data structures (e.g., JSON). In some embodiments, the Cloud Planner generates executable logic or scripts (e.g., Python, JavaScript, bytecode) capable of being interpreted by the Local Execution Engine. For example, the Cloud Planner may transmit a sanitized script containing placeholders (e.g., if locate(<BTN_TOKEN>): click()). The Local Rehydration Module injects real-world selectors into this script prior to execution, maintaining the zero-trust boundary even for complex dynamic logic.D. Local Planner (Fallback / Sensitive Context Mode)
+In cases where:
+Internet is unavailable
+Sensitive content cannot be redacted
+Cloud is disabled
+User disables external communication
+…a local small language model (SLM) or rule-based planner performs reasoning.
+The local planner:
+Uses cached templates
+Uses device embeddings
+Performs approximate reasoning
+Generates local plans
+The system can dynamically switch between cloud and local planning.
+This dynamic split-planning is a key inventive element.
+E. Local Rehydration Module
+After receiving a plan (from cloud or local):
+Placeholder tokens are mapped back to real sensitive values
+Context is fully restored locally
+Execution becomes contextually accurate
+For example:
+Cloud sees:
+ “Send an email reply to <P1> saying <MSG_3>.”
+Local executor sees:
+ “Send email reply to Dr. Manish Kumar saying ‘Your pathology report is ready.’”
+This rehydration step is never performed on the cloud.
+The rehydration layer includes a binding engine that maps tokens to real values through a lookup table generated during sanitization. 
+Mapping uses:
+• positional anchors
+• semantic anchors
+• OCR proximity
+• UI bounding boxes
+• execution context memory
+If a token cannot be rehydrated deterministically, the system halts execution and requests user confirmation. F. Local Execution Engine (Novel Component)
+Plan Validation Module
+ All planner outputs—whether generated by the cloud planner or local planner—pass through a Plan Validation Module before any execution begins. This module verifies:
+Action schema conformity
+Token-role consistency
+Token presence in the TBT
+Allowed action types (whitelisted)
+Absence of hallucinated UI references
+Structural compatibility with the current Semantic Skeleton
+Plans failing validation are rejected, triggering either a re-plan request or automatic fallback to the local planner.
+Zero-Trust Execution Gate
+ Immediately before execution on the OS layer, the system enforces a Zero-Trust Execution Gate, which checks:
+The action is permitted under safety policy
+Token-to-UI mapping is deterministic per the TBT
+Sensitive data will not be transmitted outside the device
+Preconditions for the action exist in the current Semantic Skeleton
+The plan step has not deviated from expected UI state
+Only after satisfying these checks does the Local Execution Engine inject events into the OS or application.
+
+This engine performs all real actions:
+Keyboard events
+Mouse events
+Touch events
+App switching
+Clipboard operations
+Form entries
+Command triggers
+Accessibility actions
+This execution engine supports:
+Windows
+macOS
+Linux
+Android (via AccessibilityService)
+Most importantly:
+It does not require app APIs.
+It interacts with the OS as a human would.
+API-Constrained Final Execution (Optional Embodiment)
+In some embodiments, when an application exposes an official, user-facing API (e.g., Gmail send-mail API, Outlook email API, internal enterprise form-submission endpoints), the Local Execution Engine may use these APIs solely for final task delivery, provided that:
+The API endpoint is the same destination that would normally receive the data during manual user operation.
+No sensitive data is ever sent to cloud planners or non-intended third-party services.
+All sensitive values inserted into the API request are produced locally via deterministic rehydration.
+If these conditions are not met, the system executes the task exclusively via UI-based interaction, preserving the zero-trust boundary.
+Execution-Phase-Only API Authorization (Critical Architectural Constraint)
+To prevent any misuse of APIs as a planning or data-extraction channel, the system enforces a strict phase boundary:
+No API may be invoked during sensing, analysis, sanitization, or cloud planning.
+API invocation is permitted only in the final execution phase, and only when the endpoint is the natural and intended recipient of the user’s content during normal manual use of the same application (e.g., Gmail API for sending an email, Outlook API for submitting a draft, enterprise backend submission APIs).
+The Local Execution Engine evaluates:
+Endpoint Intent Match: The API endpoint receives the same type of data the application would normally send during manual use.
+
+
+Planning Isolation: The cloud planner does not generate API calls and never receives any raw sensitive values.
+
+
+Deterministic Rehydration: All API parameters are locally reconstructed from the Token Binding Table (TBT).
+
+
+Zero-Trust Gate Approval: If the API would expose sensitive data to any party that is not the intended destination, the system automatically falls back to UI-based execution.
+
+
+This guarantees that APIs are used only for user-intended final delivery, and never as part of the cloud planning or sensitive data exposure pathway.
+The invention does not depend on any operating system’s privileged APIs. It uses only user-permitted automation surfaces (Accessibility APIs, input injection APIs, window metadata) available to normal applications, ensuring cross-platform compatibility without requiring vendor-specific integrations.
+
+Latent Semantic Caching and Generative Intent:
+To minimize latency without relying on static “Selector Maps” (as found in legacy RPA), the Local Execution Engine maintains a runtime 'Semantic Cache' of identified UI elements.
+Discovery Phase: Upon interaction, the system dynamically analyzes the UI to identify element coordinates.
+Caching Phase: Validated locations are stored in a local, encrypted vector store.
+Distinction: Unlike RPA migration tools that match a target element to a pre-recorded “source” element, the present invention identifies targets based on Generative Intent Resolution, where the Planner infers the correct element based on the user's semantic goal (e.g., “Pay Bill”) rather than visual similarity to a historic template.
+Distinction from Static OCR Tracking:
+Unlike conventional OCR-based automation that relies on matching static pre-recorded image templates, the present invention employs Multimodal Semantic Fusion. The Local Execution Engine combines OCR, accessibility node metadata, spatial layout graphs, and semantic context provided by the Planner. Target identification is performed through inferential reasoning rather than pixel matching.
+
+Best Mode (Preferred Implementation):
+The preferred current implementation of the system is on Android. The system uses Android’s AccessibilityService for event capture, UI traversal, and interaction, and employs GestureDescription for injecting touch and input events. For text-based anchors, any standard OCR engine may be used—including open-source engines such as Tesseract or platform-provided engines such as Google ML Kit OCR—solely as a utility to extract visible text regions; the invention does not depend on any specific OCR algorithm. Offline fallback planning is supported through a small on-device language model (SLM) in the 1–3B parameter range, and semantic retrieval uses a lightweight vector store such as FAISS or a SQLite-based embedding cache. Structured plans follow a JSON schema with fields for action, target, token_reference, and optional parameters.
+Equivalent embodiments may be implemented on desktop platforms using their native accessibility frameworks (e.g., Windows UI Automation, macOS AX API, Linux AT-SPI2); however, the Android implementation described above represents the best currently-known mode of practicing the invention.G. Observational Loop
+After each action, the executor:
+Captures new UI state
+Validates expected changes
+Detects deviations
+Sends feedback to the planner (local) if needed
+This loop creates deterministic, safe automation.
+H. Self-Healing Module
+If a UI element has moved or changed, the system:
+Compares expected vs actual UI structure
+Detects visual or semantic variances
+Adjusts:
+coordinates
+anchors
+selectors
+context groupings
+Retries the corrected action
+This avoids RPA failures.
+This module is innovative and patentable.
+
+Self-healing uses hybrid anchor sets comprising:
+• OCR-based anchors
+• DOM or accessibility node role anchors
+• geometric anchors (distance/position)
+• semantic anchors (label meaning)
+• relational anchors (nearest neighbor nodes)
+This multi-anchor approach is not found in conventional RPA systems.
+Mandatory Multi-Anchor Fusion for Self-Healing
+ The self-healing mechanism requires the system to evaluate a fused anchor set combining multiple independent anchor classes simultaneously. The anchor classes include:
+OCR Anchor – text extracted from the UI element or its surrounding region.
+Accessibility/Role Anchor – metadata such as control type, role, or accessibility description.
+Spatial Geometric Anchor – bounding-box position, relative geometry, and distances to stable UI regions.
+Semantic Label Anchor – inferred meaning or intent of the UI element.
+Relational Neighbor Anchor – graph-based relationships between the target UI node and nearby elements.
+The system performs variance resolution only when all anchor classes converge on a consistent, deterministic match. If anchor fusion fails to produce a unified match, the system rejects the healed selector and halts or requests user confirmation. This multi-anchor fusion requirement prevents single-anchor, pixel-based, or selector-only healing approaches used in conventional RPA systems and ensures robust, non-fragile UI adaptation.I. Offline Mode
+The system supports seamless offline operation:
+Local planner activates
+Cached UI patterns used
+Local model performs reasoning
+Execution proceeds with no cloud contact
+This feature is vital for hospitals, labs, and rural settings.
+3.2 Detailed Cross-Application Automation Method
+A complete cross-application workflow example:
+User issues command:
+ “Download the patient report from the EMR and upload it to the billing portal.”
+System extracts UI state locally.
+Sanitization layer removes PII:
+Names replaced with <P#>
+IDs replaced with <ID#>
+Cloud receives sanitized structure like:
+ “Click on the first item in the table, labeled <P1>.”
+Cloud returns plan.
+Local rehydration restores:
+actual patient name
+actual report text
+Local executor performs actions.
+Self-healing ensures:
+if the “Upload” button moved,
+anchor recomputed
+plan adapted
+Workflow finishes safely.
+3.3 Mobile Execution (Android)
+Mobile agent uses:
+AccessibilityService
+Usage stats API
+Clipboard API
+Window content description
+Touch simulation
+Actions include:
+Scroll
+Touch
+Enter text
+Switch apps
+Extract screen content
+No cloud receives sensitive content.3.4 Desktop Execution (Windows/macOS/Linux)
+Desktop agent uses:
+OS-level input injection
+OCR
+Window handles
+UI trees
+Keyboard/mouse automation
+Supports:
+Hospitals running EMRs
+Accounting software
+Government portals
+Legacy apps
+3.5 Security and Zero-Trust Execution Guarantees
+The invention enforces:
+Sensitive data never leaves device
+ 
+Zero-Trust Boundary Clarification for External Service APIs
+For clarity, “sensitive data never leaves the device” refers strictly to the reasoning, planning, and decision-making pipeline. Sensitive values are never transmitted to the cloud planner or any general-purpose AI reasoning service.
+However, the system may transmit sensitive data to an external application or service that is the intended recipient of the user’s task, such as an email provider (e.g., Gmail API, Outlook API, SMTP server) when the user explicitly intends to send an email, upload a document, submit a form, or interact with a backend service.
+Such transmissions are considered part of the user-authorized final execution, not part of planning, and do not violate the zero-trust boundary, because the system does not reveal sensitive content to any party beyond those who would receive it during normal human operation of the application.
+If an API endpoint would expose sensitive data to a party that is not the natural/intended recipient during usual application use, the system automatically blocks that transmission and falls back to pure UI-based execution.
+All planning on cloud is sanitized
+Execution occurs only after safety checks
+No direct cloud-to-action path
+Local confirmation required for high-risk actions
+These constraints prevent misuse and ensure regulatory compliance.
+Distinction from Confidential Cloud / TEEs:
+The present invention is structurally distinct from “Confidential Computing” approaches that transmit raw sensitive data to a remote Trusted Execution Environment (TEE).
+Data Exclusion vs. Data Encryption: TEEs rely on securing data during transport. The present invention excludes the data entirely from the network payload.
+Semantic Abstraction: The invention transforms the UI state into a 'Semantic Skeleton' prior to transmission, resulting in a significantly smaller payload than TEE approaches.
+Local Sovereignty: By performing sanitization on the local processor, the system eliminates dependency on cloud-hardware integrity. A system that transmits raw PII to a cloud server—regardless of encryption—does not practice the 'Local-First Sanitization' method disclosed herein.
+
+3.6 Soft-Delete and Temporary Retention Subsystem 
+In some embodiments, the system maintains a secure, local, encrypted "Soft-Delete Buffer" configured to store minimal execution metadata for a strict, time-bounded retention period (e.g., 15 days).
+Sanitized Storage: Crucially, this buffer does not contain raw PII, screenshots, or full UI context. It retains only sanitized operational artifacts, including action logs, tokenized UI references (e.g., <BTN_4> clicked), and error codes. All retained data remains in the Sanitized Semantic Skeleton format described in Section 3.1(B).
+Purpose: The temporary retention enables:
+(a) Rollback/Re-execution: Allowing the Local Planner to retry a failed workflow from the last known safe state.
+(b) Compliance Auditing: Providing regulated institutions (e.g., hospitals) with a trace of actions without exposing patient data.
+(c) Crash Restoration: Recovering agent state after unexpected device shutdowns.
+Automatic Secure Erasure: Upon expiration of the retention period (e.g., 15 days), the buffer is automatically purged using a cryptographic erasure protocol.
+Distinction from Traditional Logging: Unlike traditional application logging that stores complete user interaction histories or raw debugging dumps, the present invention stores only abstracted, tokenized records in a self-expiring buffer. This preserves the Zero-Trust boundary while enabling enterprise-grade reliability.
+PART 4 — EXAMPLE EMBODIMENTS OF THE INVENTION
+This section provides several embodiments illustrating how the disclosed hybrid AI agent system may be used across desktop and mobile operating systems. The embodiments are non-limiting and may be modified without departing from the scope of the invention.4.1 DESKTOP EMBODIMENT — Hospital EMR Automation (Windows / Linux)
+User Workflow Example
+A hospital administrator issues the command:
+“Open the EMR, search for patient Manish Kumar, download today’s report, and attach it to the billing record.”
+Step-by-Step System Behavior
+1. Capture UI
+The agent captures:
+screen pixels (OCR)
+window structure
+EMR UI elements
+date fields
+table rows
+2. Zero-Trust Sanitization
+PII replaced:
+“Manish Kumar” → <PATIENT_1>
+“94682031” → <HOSP_ID_7>
+Lab result text → <RECORD_TEXT_3>
+Cloud sees only placeholders.
+Raw data stays local.
+3. Cloud Planning
+Cloud LLM receives a sanitized skeleton:
+- Open application "EMR"
+- Locate record <PATIENT_1> in table
+- Click "Reports"
+- Download <RECORD_TEXT_3>
+- Switch to "Billing Portal"
+- Upload file to <PATIENT_1_BILLING>
+Cloud returns a structured plan.
+4. Local Rehydration
+Local device restores:
+real patient name
+real report IDs
+real file paths
+5. Local Execution
+Executor performs:
+Win+Search → open EMR
+Type in search bar
+Click correct row based on OCR+anchors
+Detect and click “Reports”
+Save file
+Switch to billing portal
+Upload file
+6. Self-Healing Mechanism
+If the “Reports” icon moves:
+system detects mismatched pixel+OCR anchors
+recomputes the UI target
+retries the step
+7. Completion
+A secure local log is generated:
+No PII sent to cloud
+Cloud never touched real report
+All operations verifiable
+4.2 DESKTOP EMBODIMENT — Legacy Government Portal (macOS/Windows)
+User command:
+ “Login to GST portal, download last month’s summary, email it to my accountant.”
+Key System Actions
+Captures login page structure (never cloud)
+Redacts GST number + PAN
+Cloud receives:
+ “Fill <ID_1> in textbox 1; click Login.”
+Local execution fills real credentials
+UI self-heals if CAPTCHA image position shifts
+Handles multi-window downloads
+Sends email via Outlook or Gmail desktop
+This enables RPA workflows without breaking when the portal UI changes.4.3 MOBILE EMBODIMENT — Gmail → WhatsApp Automation (Android)
+Command:
+ “Reply to the first three unread emails in Gmail using WhatsApp text style.”1. Local UI Capture
+Mobile agent captures:
+Gmail UI hierarchy
+Sender names
+Body preview text
+Buttons (“Reply”, “Archive”)
+2. Sanitization
+Sender name → <SENDER_1>
+Email preview → <MSG_PREVIEW_2>
+Cloud receives abstract form:
+For first 3 items:
+  open item i
+  read body <MSG_PREVIEW_i>
+  generate casual reply
+3. Cloud Planning
+Outputs plan:
+Tap Gmail
+Tap mail #1
+Copy body
+Switch to ChatGPT app
+Generate reply
+Return to Gmail
+Send reply
+Repeat
+4. Local Execution
+Executor performs:
+AccessibilityService → tap actions
+Read via getText()
+Copy clipboard
+Switch apps via intents
+Paste generated message
+Press send
+5. Self-Healing
+If Gmail’s layout changes:
+anchor nodes re-evaluated
+new button coordinates detected
+fallback OCR used
+4.4 MOBILE EMBODIMENT — Instagram Caption Generator
+Command:
+ “Open Instagram, select the last photo in the gallery, and generate a fun caption.”
+Actions
+Local agent opens Instagram
+Navigates to upload
+Detects latest photo
+Replaces image contents with placeholder <IMAGE_1>
+Sends sanitized prompt to cloud
+Local executor pastes caption
+User reviews before posting
+Cloud never sees the real image.4.5 CROSS-DEVICE EMBODIMENT — Desktop + Mobile Coordination
+Command:
+ “On desktop, capture the invoice from Tally and send it to my phone as a WhatsApp message draft.”
+System Behavior
+Desktop agent extracts invoice (OCR).
+Sanitization removes vendor name + amounts.
+Cloud creates structure: “Summarize <BILL_1>.”
+Local executor rehydrates real values.
+Draft message passed to mobile agent securely (local channel).
+WhatsApp opened with draft text (not sent automatically).
+Zero-trust applied across device4.6 OFFLINE EMBODIMENT — No Internet Scenario
+Command:
+ “Schedule tomorrow’s appointments in my EMR.”
+Behavior
+Local SLM performs reasoning
+Cached templates used
+No cloud call
+Execution continues fully offline
+This supports rural clinics, field work, and airplane mode scenarios.4.7 HEALTHCARE DATA-SAFE EMBODIMENT — Doctor Assistant
+Command:
+ “For patient Asha, summarize the last three prescriptions into one instruction sheet.”
+System Behavior
+Prescriptions scanned locally
+OCR + PII detection
+Cloud only sees:
+ “Summarize <PRESCRIPTION_1> <P2> <P3> for <PATIENT_1>.”
+
+
+Cloud generates clean instructions
+Local executor rehydrates with the real medicines and doses
+Sensitive patient data never leaves the device.4.8 ENTERPRISE EMBODIMENT — Internal Web Portals
+Command:
+ “Go to our internal HR portal, apply for leave, and send confirmation email.”
+Key points:
+Internal apps lack APIs
+Automation normally impossible
+Hybrid agent solves it through UI
+Self-healing handles portal updates
+4.9 WORKED TECHNICAL EXAMPLE (Insert This Block Exactly)
+Scenario: “Copy the invoice number from the PDF viewer and paste it into the billing portal.”
+Step 1: Local Capture
+ UI shows: “Invoice #998877”, “Total ₹5,000”.
+Step 2: Sanitization
+“998877” → <INV_ID>
+“₹5,000” → <AMOUNT>
+ TBT entry example:
+ { token: "<INV_ID>", role: "invoice_number", path: "root/container[1]/row[2]", anchors: {ocr:"998877", role:"label", box:[120,75,80,20]}, context_hash:"81fa33" }
+Step 3: Semantic Skeleton
+ { elements: [ {type:"label", text:"Invoice <INV_ID>"}, {type:"label", text:"Total <AMOUNT>"} ] }
+Step 4: Cloud Plan
+[
+{"action":"copy","target_token":"<INV_ID>"}, {"action":"switch","app":"Billing"},  {"action":"paste","target_field":"Invoice Number"}
+]
+Step 5: Local Rehydration
+ <INV_ID> → “998877”
+Step 6: Execution
+ Executor selects “998877”, copies it, switches to Billing app, pastes value.
+Step 7: Self-Healing
+ If the “Invoice Number” field has moved, anchors are recomputed and the step is corrected.
+PART 5 — Advantages, Industrial Applicability & Optional Claims Outline
+5.1 ADVANTAGES OF THE INVENTION
+The disclosed invention provides several technical, functional, and security advantages over existing AI agents, RPA systems, LAM-based agents, and conventional automation frameworks.
+A. Zero-Trust Privacy Architecture
+Sensitive data never leaves the local device.
+Cloud receives only sanitized, abstracted, placeholder-based UI state.
+No patient data, financial data, credentials, screenshots, or PII are transmitted.
+This enables deployment in hospitals, labs, banks, and government agencies.B. Hybrid Split-State Planning (Novel Architecture)
+Cloud LLM → high-level reasoning using sanitized semantic skeleton.
+Local LLM → fallback planning for offline/sensitive workflows.
+Dynamic switching ensures reliability and compliance.
+This hybrid model is not present in existing cloud-only agents.C. Local Execution Without APIs
+The agent performs real actions through:
+OS automation
+Accessibility APIs
+Keyboard/mouse/touch events
+Window handles
+OCR-guided selectors
+No integration or API is required.
+ This enables automation of legacy systems and regulated apps.D. Self-Healing Execution Mechanism
+The automation recovers automatically when:
+UI changes
+Buttons move
+Labels change slightly
+Screen resolution differs
+Existing RPA breaks under these conditions.
+ This invention adapts using anchors + OCR + semantic variance.
+E. Offline-First Capability
+When Internet is unavailable:
+Local LLM generates plan
+Cached templates used
+Workflow continues smoothly
+This is critical in:
+rural hospitals
+field clinics
+emergency care
+travel scenarios
+enterprise privacy environments
+
+
+F. Cross-Platform, Cross-App Automation
+The invention works across:
+Windows
+macOS
+Linux
+Android
+
+
+And across
+EMRs
+banking portals
+CRMs
+spreadsheets
+internal corporate portals
+social apps (messaging, email, etc.)
+G. Regulatory Compliance
+Supports:
+HIPAA-style privacy
+GDPR/DPDP compliance
+Healthcare and finance auditability
+No existing AI agent complies with these by default.H. Secure, Verifiable Execution
+System supports:
+local logs
+hashed execution traces
+reproducibility
+safety checks before actions
+This strengthens trust.5.2 INDUSTRIAL APPLICABILITY
+The invention can be applied across multiple industries:A. Healthcare
+EMR automation
+Lab systems
+Insurance claim processing
+Patient record workflows
+Appointment scheduling
+The zero-trust architecture makes it ideal for hospitals.B. Finance
+Bank portals
+Compliance systems
+GST portal automation
+Accounting software
+Invoicing workflows
+C. Legal & Government
+Case management
+Document filing
+E-governance systems
+Legacy office portals
+Many such systems lack APIs → the agent solves this.D. Enterprise SaaS
+HR portals
+Internal tool
+Access management
+Ticketing systems
+E. Consumer Automation
+Mobile phone automation
+Email management
+Message drafting
+Cross-app workflows
+Social media updates
+F. Retail & SMB
+CRM automation
+Billing portals
+Inventory management via UI
+Payment dashboards
+
+5.3 OPTIONAL CLAIMS OUTLINE 
+These are not formal claims, but a structured outlineIndependent Claim 1 — System Claim
+A hybrid AI agent system comprising:
+a UI capture module;
+a zero-trust sanitization module;
+a cloud-based planner receiving sanitized input;
+a local planner performing fallback reasoning;
+a local rehydration module;
+a local execution engine;
+a self-healing module;
+an offline execution mode.
+Independent Claim 2 — Method Claim
+A method for privacy-preserving cross-application automation comprising steps of:
+capturing UI state;
+detecting and redacting PII;
+generating sanitized semantic skeleton;
+sending sanitized state to cloud planner;
+receiving plan;
+rehydrating real values locally;
+executing actions locally;
+performing self-healing upon UI variance;
+falling back to local LLM when offline.
+Independent Claim 3 — Computer Program Product                               A non-transitory computer readable medium storing instructions that cause a processor to execute the above method.Dependent Claims (Examples)
+Claim 4 — PII Redaction
+Wherein PII is replaced with placeholder tokens.
+Claim 5 — Semantic Skeleton Structure
+Wherein sanitization generates structural representation including layout, anchors, and action candidates.
+Claim 6 — Split-State Planning
+Wherein the system dynamically selects cloud or local planner.
+Claim 7 — Self-Healing
+Wherein UI variance triggers correction using OCR-based anchors.
+Claim 8 — Offline Mode
+Wherein planning is performed by local LLM when offline.
+Claim 9 — Cross-Application Automation
+Wherein execution requires no app-specific APIs.
+Claim 10 — Sanitized Retention Buffer 
+Wherein the system further comprises a local, encrypted retention buffer configured to store execution logs exclusively in a sanitized, tokenized format for a predetermined duration, after which said logs are automatically purged.

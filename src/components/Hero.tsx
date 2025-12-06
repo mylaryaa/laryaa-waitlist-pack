@@ -10,23 +10,23 @@ export default function Hero() {
 
         {/* Main headline */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-8 leading-[1.1]">
-          Fast like RPA.
+          Cloud intelligence.
           <br />
-          Smart like AI.
+          Local execution.
           <br />
-          <span className="text-[var(--text-muted)]">Private by design.</span>
+          <span className="text-[var(--text-muted)]">Zero-trust by design.</span>
         </h1>
 
         {/* Subtitle */}
         <p className="section-subtitle max-w-2xl mb-10">
-          The world&apos;s first RPA-smart automation platform. 10x faster than
-          vision agents, zero maintenance cost, 100% HIPAA compliant.
+          The first split-state AI agent. Your data never leaves your device during planning.
+          Self-healing automation that works offline.
         </p>
 
         {/* CTAs */}
         <div className="flex flex-wrap gap-4 mb-16">
           <Link href="/contact" className="btn-primary">
-            Get early access
+            Join Pioneer Program
             <ArrowRight size={16} />
           </Link>
           <Link href="/product" className="btn-secondary">
@@ -37,16 +37,16 @@ export default function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-8 pt-10 border-t border-[var(--border)]">
           <div>
-            <p className="text-3xl md:text-4xl font-normal mb-1">227ms</p>
-            <p className="text-sm text-[var(--text-muted)]">Average action time</p>
+            <p className="text-3xl md:text-4xl font-normal mb-1">Local</p>
+            <p className="text-sm text-[var(--text-muted)]">All execution on-device</p>
           </div>
           <div>
-            <p className="text-3xl md:text-4xl font-normal mb-1">0%</p>
-            <p className="text-sm text-[var(--text-muted)]">Maintenance cost</p>
+            <p className="text-3xl md:text-4xl font-normal mb-1">Zero</p>
+            <p className="text-sm text-[var(--text-muted)]">PII sent to cloud</p>
           </div>
           <div>
             <p className="text-3xl md:text-4xl font-normal mb-1">100%</p>
-            <p className="text-sm text-[var(--text-muted)]">HIPAA compliant</p>
+            <p className="text-sm text-[var(--text-muted)]">Offline capable</p>
           </div>
         </div>
       </div>

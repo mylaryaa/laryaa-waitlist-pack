@@ -1,0 +1,312 @@
+Laryaa ZTE v0.1 — Product Requirements
+Document (PRD)
++ Technical Requirements Document (TRD)
++ Unified Implementation Blueprint (Aligned with
+FIG.1–FIG.5 Zero-Trust Architecture) (PRD)
++ Technical Requirements Document (TRD)
++ Unified Implementation Blueprint
+(Draft Version: v0.1 — Compiled from ChatGPT, Grok, Gemini responses, and CTO architecture)
+1. INTRODUCTION
+Laryaa ZTE (Zero‑Trust Execution) is a Windows‑native AI agent runtime designed to execute desktop tasks
+predictably, safely, and repeatably without relying on brittle coordinate‑based automation. The v0.1
+prototype focuses on: - Using Windows search reliably - Opening and interacting with apps (WhatsApp, VS
+Code, Browser) - Executing predictable task flows - Keeping the architecture modular, skill‑based, and
+LLM‑compatible
+2. PURPOSE OF THIS DOCUMENT
+This combined PRD + TRD + Blueprint provides: - Product Requirements (what the system must do) -
+Technical Requirements (constraints, architecture) - Detailed Implementation Spec (class structure,
+modules, planning schema) - Clear dev instructions for v0.1 implementation
+This document is meant for: - Developers building Laryaa ZTE runtime - AI coding models (Sonnet, Gemini,
+GPT) for code generation - Future contributors and maintainers
+1
+=============================
+PART I — PRODUCT REQUIREMENTS
+=============================
+3. PRODUCT OVERVIEW
+Laryaa ZTE v0.1 is a local execution agent capable of running structured plans against Windows 10/11
+using a consistent runtime. It replaces brittle macros with: - A modular skill system - A central engine to
+execute declarative plans - A Windows adapter for deterministic actions - Optional planner (Gemini/Sonnet)
+for generating plans
+3.1 What v0.1 Can Do
+Task A: Use Windows Search - Press Win - Type app name - Hit Enter
+Task B: WhatsApp Reply - Open WhatsApp - Focus last chat - Send message text
+Task C: VS Code → npm run dev - Open VS Code - Open Terminal - Run command - Launch browser to
+localhost
+Task D: Instagram Login (Browser) - Launch browser - Go to URL - Fill username/password via Playwright
+4. USER STORIES
+US‑01: As a user, I can ask the system to open any installed app via Windows search. US‑02: As a user, I
+can reply to WhatsApp’s latest chat reliably. US‑03: As a developer, I can define tasks using readable
+JSON plans. US‑04: As a developer, I can add new Skills without modifying the engine. US‑05: As a
+power user, I want to generate these plans using Gemini/Sonnet automatically.
+5. FEATURES
+MVP Features (v0.1)
+Plan execution runtime
+Modular Skill System
+Windows Adapter abstraction
+Skills: Desktop, WhatsApp, VS Code, Browser, Instagram
+JSON Plan execution
+Logging + simple error handling
+•
+•
+•
+•
+•
+•
+2
+Non‑Goals (v0.1)
+Zero‑trust sanitization
+Failure recovery/healing
+Multimodal agent loop
+OCR fallback
+Predictive planning (local AI)
+==============================
+PART II — TECHNICAL REQUIREMENTS (TRD)
+==============================
+6. TECHNOLOGY STACK
+Runtime
+Python 3.10+ (locked)
+Windows Automation
+uiautomation or pywinauto for UIA tree
+pyautogui for keyboard fallback
+Browser Automation
+Playwright (preferred)
+Cloud Planner
+Gemini API (Vertex AI) or Sonnet (Anthropic)
+7. SYSTEM ARCHITECTURE (HIGH LEVEL — Strict Zero-Trust per FIG.
+1–FIG.5)
+The architecture now follows the diagrams from Laryaa_Hybrid_AI_Agent_Drawings.pdf:
+FIG.1 — Hybrid Agent System Architecture Overview
+Cloud receives only sanitized token streams.
+Local device handles all sensitive data, all clicks/keystrokes, all rehydration.
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+3
+Cloud planner returns a sanitized plan.
+Local executor rehydrates and performs actions.
+FIG.2 — Zero-Trust Sanitization Pipeline
+Pipeline stages: 1. Raw UI context (UIA + OCR) 2. PII Detection 3. Redaction → Tokens 4. Semantic Skeleton
+Builder 5. Cloud Planner (sanitized-only) 6. Local Rehydration 7. Local Execution
+FIG.3 — Execution Workflow Loop
+Receive plan → Validate → Execute step → Observe → Success? → Self-heal if needed.
+FIG.4 — Self-Healing Loop
+Detect mismatch → Variance Detection (OCR + UIA fusion) → Re-Align → Retry.
+FIG.5 — Offline Fallback Architecture
+If cloud planner unavailable → use local SLM for reasoning.
++-----------------------------+
+| Gemini/Sonnet |
+| (Plan Generator) |
++-------------+---------------+
+|
+v
+JSON PLAN (structured)
+|
+v
++---------------+------------------+
+| Laryaa ZTE Engine |
+| - plan loader |
+| - validation |
+| - dispatcher |
++-------+---------+----------------+
+| |
++---------+--+ +--+-----------+
+| Skills | Skills |
+| (Apps) | (Browser) |
++-----+--------+---+------------+
+| |
++---------+----+ +--+-------------+
+| Windows Adapter| | Playwright |
++----------------+ +----------------+
+•
+•
+•
+•
+•
+4
+8. CORE SYSTEM MODULES
+8.1 Engine
+Loads JSON plan
+Validates schema
+Executes each step
+Calls corresponding skill
+8.2 Skills
+system.desktop
+whatsapp
+vscode
+browser
+browser.instagram
+8.3 Windows Adapter
+Handles: - open_app_via_search - focus_window - send_text - send_hotkey - UIA element querying
+8.4 Planner (Optional)
+Input: goal + skill catalog
+Output: structured JSON plan
+==============================
+PART III — IMPLEMENTATION BLUEPRINT
+==============================
+9. FILE STRUCTURE (RECOMMENDED)
+laryaa_zte/
+engine/
+__init__.py
+executor.py
+validator.py
+loader.py
+skills/
+__init__.py
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+5
+system_desktop.py
+whatsapp.py
+vscode.py
+browser.py
+instagram.py
+windows_adapter/
+__init__.py
+adapter.py
+planner/
+__init__.py
+gemini_planner.py
+sonnet_planner.py
+plans/
+demo_whatsapp.json
+demo_devserver.json
+10. CLASS & METHOD SIGNATURES (ABSTRACT)
+10.1 Engine
+class ZTEEngine:
+def load_plan(self, path: str) -> dict: ...
+def validate_plan(self, plan: dict) -> None: ...
+def execute_plan(self, plan: dict) -> None: ...
+def dispatch(self, step: dict) -> None: ...
+10.2 Skill Base Class
+class Skill:
+def run(self, action: str, args: dict): ...
+10.3 Windows Adapter
+class WindowsAdapter:
+def open_app_via_search(self, name: str): ...
+def focus_window(self, title_substr: str): ...
+def send_text(self, text: str): ...
+6
+def send_hotkey(self, *keys): ...
+def find_element(self, window, name=None, role=None): ...
+10.4 Specific Skills
+system.desktop
+class SystemDesktopSkill(Skill):
+def open_app(self, name: str): ...
+def focus_app(self, name: str): ...
+whatsapp
+class WhatsAppSkill(Skill):
+def focus_last_chat(self): ...
+def send_message(self, text: str): ...
+vscode
+class VSCodeSkill(Skill):
+def run_terminal_command(self, command: str): ...
+browser
+class BrowserSkill(Skill):
+def open_url(self, url: str): ...
+instagram
+class InstagramSkill(Skill):
+def login(self, username: str, password: str): ...
+11. PLAN SCHEMA (FINAL)
+A plan is a list of steps:
+[
+{
+7
+"skill": "system.desktop",
+"action": "open_app",
+"args": {"name": "WhatsApp"}
+},
+{
+"skill": "whatsapp",
+"action": "send_message",
+"args": {"text": "Prototype hello from Laryaa ZTE"}
+}
+]
+11.1 Validation Rules
+skill must exist in registry
+action must exist on skill
+args must match signature
+12. EXECUTION FLOW (RUNTIME)
+Load plan
+Validate plan
+For each step:
+dispatch to skill
+skill uses Windows Adapter or Playwright
+log outcome
+Exit
+13. TESTING MATRIX
+Windows Search
+Open VSCode
+Open Chrome
+Open WhatsApp
+WhatsApp
+Ensure last chat selected
+Send message
+VS Code
+Open terminal
+Run npm command
+•
+•
+•
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+•
+•
+•
+•
+•
+•
+•
+8
+Browser
+Navigate to URL
+Check page load
+Instagram
+Fill username/password
+Validate login
+14. FUTURE ROADMAP (POST v0.1)
+v0.2
+OCR fallback
+PII sanitization
+Self‑healing
+v0.3
+Vision‑Language Loop (VLA)
+Dynamic element discovery
+v1.0
+Full Zero‑Trust Agent
+Product‑ready release
+END OF DOCUMENT
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+9

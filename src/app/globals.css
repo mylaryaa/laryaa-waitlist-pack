@@ -121,3 +121,8 @@ body {
   background: var(--text);
   color: var(--bg);
 }
+
+/* Comparison Table Gradient */
+.comparison-table-wrapper {
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.96));
+}

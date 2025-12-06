@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Laryaa aOS',
   },
   description:
-    'Laryaa aOS – The world\'s first RPA-smart automation platform. Fast like RPA (227ms/action), smart like AI, private by design. HIPAA, GDPR, PCI-DSS compliant. Powered by Project KONDOM zero-trust architecture.',
+    'Laryaa aOS – The world\'s first RPA-smart automation platform. Fast like RPA, smart like AI, private by design. HIPAA, GDPR, PCI-DSS compliant. Powered by Project KONDOM zero-trust architecture.',
   keywords: [
     'RPA automation',
     'AI automation',
@@ -85,21 +85,32 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://laryaa.com',
+    languages: {
+      'en': 'https://laryaa.com',
+      'en-US': 'https://laryaa.com',
+      'en-GB': 'https://laryaa.com',
+      'en-IN': 'https://laryaa.com',
+      'x-default': 'https://laryaa.com',
+    },
   },
-  category: 'technology',
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" className={inter.variable}>
+    category: 'technology',
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/icon.svg', type: 'image/svg+xml' },
+      ],
+      apple: '/apple-touch-icon.png',
+    },
+  }
+  
+  export default function RootLayout({
+    children,
+  }: {
+    children: React.ReactNode
+  }): JSX.Element {
+    return (
+      <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Structured Data for AI Scraping */}

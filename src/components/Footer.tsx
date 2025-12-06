@@ -7,8 +7,9 @@ const footerLinks = {
     { href: '/industries', label: 'Industries' },
   ],
   Company: [
+    { href: '/about', label: 'About' },
+    { href: '/careers', label: 'Careers' },
     { href: '/contact', label: 'Contact' },
-    { href: '/contact', label: 'Early Access' },
   ],
   Legal: [
     { href: '#', label: 'Privacy' },
@@ -27,7 +28,7 @@ export default function Footer() {
               Laryaa
             </Link>
             <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-              The future of enterprise automation. Fast, smart, and private.
+              AI that works where APIs don't.
             </p>
           </div>
 
