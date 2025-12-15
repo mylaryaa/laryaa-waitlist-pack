@@ -55,7 +55,7 @@ export const websiteSchema = {
   '@type': 'WebSite',
   name: 'Laryaa aOS',
   url: 'https://laryaa.com',
-  description: 'The world\'s first RPA-smart automation platform powered by Project KONDOM architecture.',
+  description: 'The world\'s first Zero-Trust Autonomous Operating System for enterprise automation.',
   potentialAction: {
     '@type': 'SearchAction',
     target: 'https://laryaa.com/search?q={search_term_string}',
@@ -88,15 +88,15 @@ export const faqSchema = {
       name: 'Is Laryaa aOS HIPAA compliant?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, Laryaa aOS is 100% HIPAA compliant by design. It uses a zero-trust architecture (Project KONDOM) that ensures no screenshots or PII are ever sent to the cloud. All processing happens locally on your machine.',
+        text: 'Yes, Laryaa aOS is 100% HIPAA compliant by design. It uses a zero-trust architecture that ensures no screenshots or PII are ever sent to the cloud. All sensitive processing happens locally on your machine.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What is Project KONDOM?',
+      name: 'What is the Hybrid Split-State Architecture?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Project KONDOM (Knows Only Necessary Data On Machine) is Laryaa\'s zero-trust architecture. It ensures sensitive data never leaves the device through PII tokenization, local execution, and local-only healing operations.',
+        text: 'Laryaa\'s Hybrid Split-State Architecture is a zero-trust design where sensitive data never leaves the device. The cloud receives only sanitized abstractions for planning, while all execution and sensitive data processing happens locally.',
       },
     },
     {

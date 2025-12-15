@@ -1,6 +1,6 @@
 # Laryaa aOS – Marketing Website
 
-A modern, SEO-optimized, AI-scrapable Next.js 14 website for **Laryaa aOS** – the world's first RPA-smart automation platform powered by Project KONDOM architecture.
+A modern, SEO-optimized, AI-scrapable Next.js 14 website for **Laryaa aOS** – the world's first Zero-Trust Autonomous Operating System for enterprise automation.
 
 ## Tech Stack
 

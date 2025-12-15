@@ -110,7 +110,7 @@ export default function ContactPage() {
                 <h3 className="font-medium mb-2">Our commitment</h3>
                 <p className="text-[var(--text-muted)]">
                   We&apos;ll never send screenshots or PII to the cloud.
-                  Project KONDOM is private by design.
+                  Zero-Trust architecture means private by design.
                 </p>
               </div>
             </div>

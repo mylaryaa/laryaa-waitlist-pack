@@ -3,17 +3,20 @@ import Link from 'next/link'
 const footerLinks = {
   Product: [
     { href: '/product', label: 'Features' },
-    { href: '/architecture', label: 'Architecture' },
+    { href: '/how-it-works', label: 'How It Works' },
+    { href: '/security', label: 'Security' },
     { href: '/industries', label: 'Industries' },
+    { href: '/insights#faq', label: 'FAQ' },
   ],
-  Company: [
+  Resources: [
+    { href: '/insights', label: 'Insights' },
     { href: '/about', label: 'About' },
     { href: '/careers', label: 'Careers' },
     { href: '/contact', label: 'Contact' },
   ],
   Legal: [
-    { href: '#', label: 'Privacy' },
-    { href: '#', label: 'Terms' },
+    { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/terms', label: 'Terms of Service' },
   ],
 }
 
@@ -21,14 +24,15 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--border)] mt-24 py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2">
             <Link href="/" className="text-lg font-medium mb-4 block">
               Laryaa
             </Link>
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-              AI that works where APIs don't.
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-xs">
+              Zero-Trust Autonomous Operating System for enterprise automation. 
+              AI that works where APIs don&apos;t.
             </p>
           </div>
 
@@ -55,10 +59,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between gap-4">
           <p className="text-sm text-[var(--text-muted)]">
-            © 2025 Laryaa. All rights reserved.
+            © 2025 Laryaa Technologies Private Limited. All rights reserved.
           </p>
           <p className="text-sm text-[var(--text-muted)]">
-            Founded by Raju · Project KONDOM Architecture · Patent Pending
+            Designed in India · Patent Pending
           </p>
         </div>
       </div>

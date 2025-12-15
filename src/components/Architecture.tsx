@@ -4,11 +4,10 @@ export default function Architecture() {
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-3 mb-4">
         <div className="flex flex-col gap-1">
           <span className="section-eyebrow">Architecture</span>
-          <h2 className="section-title">Inside Project KONDOM</h2>
+          <h2 className="section-title">Hybrid Split-State Architecture</h2>
         </div>
         <p className="text-xs text-gray-400 max-w-md">
-          Knows Only Necessary Data On Machine – a zero-trust automation
-          architecture.
+          Zero-trust automation where sensitive data never leaves your device.
         </p>
       </div>
 
@@ -51,20 +50,29 @@ export default function Architecture() {
           </p>
         </article>
 
-        {/* Why KONDOM */}
+        {/* Zero-Trust Guarantee */}
         <article className="card-elevated text-xs">
           <h3 className="font-semibold mb-1.5 text-gray-50 text-[13px]">
-            Why &ldquo;KONDOM&rdquo;?
+            Zero-Trust Guarantee
           </h3>
-          <p className="text-gray-200 mb-2">
-            <strong>K</strong>nows <strong>O</strong>nly{' '}
-            <strong>N</strong>ecessary <strong>D</strong>ata{' '}
-            <strong>O</strong>n <strong>M</strong>achine
-          </p>
-          <p className="text-gray-400 leading-relaxed">
-            A zero-trust architecture where sensitive data never leaves your device during planning. 
-            The cloud reasons on sanitized structure while all execution happens locally.
-          </p>
+          <ul className="text-gray-400 leading-relaxed space-y-2">
+            <li className="flex items-start gap-2">
+              <span className="text-gray-200">•</span>
+              <span><strong className="text-gray-200">No screenshots to cloud</strong> — raw screen data never leaves your device</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-gray-200">•</span>
+              <span><strong className="text-gray-200">PII sanitization</strong> — sensitive data is removed before any cloud communication</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-gray-200">•</span>
+              <span><strong className="text-gray-200">Local execution</strong> — all actions happen on your infrastructure</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-gray-200">•</span>
+              <span><strong className="text-gray-200">Offline capable</strong> — works without internet in air-gapped environments</span>
+            </li>
+          </ul>
         </article>
       </div>
     </section>

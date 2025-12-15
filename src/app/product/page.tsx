@@ -157,7 +157,7 @@ export default function ProductPage() {
           <p className="section-label">Roadmap</p>
           <h2 className="section-title">Platform availability</h2>
           <p className="section-subtitle max-w-2xl mb-12">
-            Starting with Android, expanding to desktop and iOS.
+            Starting with Desktop, expanding to mobile.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">

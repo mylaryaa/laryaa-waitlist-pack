@@ -23,11 +23,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://laryaa.com'),
   title: {
-    default: 'Laryaa aOS – RPA-Smart Automation Platform | Project KONDOM',
+    default: 'Laryaa aOS – Zero-Trust Autonomous Operating System',
     template: '%s | Laryaa aOS',
   },
   description:
-    'Laryaa aOS – The world\'s first RPA-smart automation platform. Fast like RPA, smart like AI, private by design. HIPAA, GDPR, PCI-DSS compliant. Powered by Project KONDOM zero-trust architecture.',
+    'Laryaa aOS – The world\'s first Zero-Trust Autonomous Operating System. Fast like RPA, smart like AI, private by design. HIPAA, GDPR, PCI-DSS compliant.',
   keywords: [
     'RPA automation',
     'AI automation',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     'zero-trust automation',
     'self-healing RPA',
     'offline automation',
-    'Project KONDOM',
+    'autonomous operating system',
     'Laryaa aOS',
   ],
   authors: [{ name: 'Raju', url: 'https://laryaa.com' }],
@@ -63,15 +63,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://laryaa.com',
     siteName: 'Laryaa aOS',
-    title: 'Laryaa aOS – RPA-Smart Automation Platform',
+    title: 'Laryaa aOS – Zero-Trust Autonomous Operating System',
     description:
-      'Fast Like RPA. Smart Like AI. Private by Design. The world\'s first RPA-smart automation platform powered by Project KONDOM zero-trust architecture.',
+      'Fast Like RPA. Smart Like AI. Private by Design. The world\'s first Zero-Trust Autonomous Operating System for enterprise automation.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Laryaa aOS – RPA-Smart Automation Platform',
+        alt: 'Laryaa aOS – Zero-Trust Autonomous Operating System',
       },
     ],
   },

@@ -82,7 +82,7 @@ export default function Comparison() {
                 <th
                   className="px-2.5 py-2 text-left font-semibold text-gray-200 text-[11px] border-b border-gray-800/80 bg-gradient-to-r from-sky-400/16 to-indigo-400/18"
                 >
-                  Laryaa aOS (Project KONDOM)
+                  Laryaa aOS
                 </th>
               </tr>
             </thead>

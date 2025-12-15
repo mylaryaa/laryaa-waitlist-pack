@@ -1,6 +1,6 @@
 import { Navbar, Hero, Footer } from '@/components'
 import Link from 'next/link'
-import { ArrowRight, Zap, Shield, Wrench, Globe } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Wrench, Globe, Heart, CreditCard, Scale } from 'lucide-react'
 
 const highlights = [
   {
@@ -11,7 +11,7 @@ const highlights = [
   {
     icon: Shield,
     title: 'Zero-Trust Security',
-    description: 'No screenshots to cloud. HIPAA, GDPR, PCI-DSS compliant by design.',
+    description: 'No screenshots to cloud. Designed for HIPAA, GDPR, PCI-DSS compliance.',
   },
   {
     icon: Wrench,
@@ -25,12 +25,36 @@ const highlights = [
   },
 ]
 
+const industries = [
+  { icon: Heart, name: 'Healthcare', compliance: 'HIPAA Ready' },
+  { icon: CreditCard, name: 'Finance', compliance: 'PCI-DSS Ready' },
+  { icon: Scale, name: 'Legal', compliance: 'Privilege Protected' },
+]
+
 export default function Home() {
   return (
     <>
       <Navbar />
       <main className="max-w-6xl mx-auto px-6">
         <Hero />
+
+        {/* Trust Section */}
+        <section className="py-16 border-t border-[var(--border)]">
+          <p className="text-center text-sm text-[var(--text-muted)] mb-8">
+            Designed for regulated industries
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+            {industries.map((industry) => (
+              <div key={industry.name} className="flex items-center gap-3 text-[var(--text-muted)]">
+                <industry.icon size={20} />
+                <div>
+                  <span className="text-[var(--text)] font-medium">{industry.name}</span>
+                  <span className="text-xs ml-2 opacity-70">{industry.compliance}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Highlights Section */}
         <section className="py-24 border-t border-[var(--border)]">
@@ -71,8 +95,8 @@ export default function Home() {
                 Request early access
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/architecture" className="btn-secondary">
-                Explore architecture
+              <Link href="/how-it-works" className="btn-secondary">
+                See how it works
               </Link>
             </div>
           </div>

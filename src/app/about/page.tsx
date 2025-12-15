@@ -1,6 +1,7 @@
 import { Navbar, Footer } from '@/components'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Linkedin } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -138,12 +139,26 @@ export default function AboutPage() {
         <section className="mb-24">
           <h2 className="text-2xl font-medium mb-8">Leadership</h2>
           <div className="flex items-center gap-6">
-            <div className="w-20 h-20 rounded-full bg-[var(--bg-alt)] flex items-center justify-center text-2xl font-medium">
-              RB
+            <div className="w-20 h-20 rounded-full overflow-hidden relative">
+              <Image
+                src="/raju-biswal.png"
+                alt="Raju Biswal - Founder & CEO of Laryaa"
+                fill
+                className="object-cover"
+              />
             </div>
             <div>
               <h3 className="text-xl font-medium">Raju Biswal</h3>
               <p className="text-[var(--text-muted)]">Founder & CEO</p>
+              <a 
+                href="https://www.linkedin.com/in/rajub1516/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-2 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors"
+              >
+                <Linkedin size={18} />
+                <span className="text-sm">LinkedIn</span>
+              </a>
             </div>
           </div>
         </section>

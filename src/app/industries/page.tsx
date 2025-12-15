@@ -13,7 +13,7 @@ const industries = [
     icon: Heart,
     name: 'Healthcare',
     compliance: 'HIPAA Compliant',
-    market: '$2.9B market, 18% CAGR',
+    tagline: 'Privacy-first automation for patient data',
     description: 'Automate EMR data extraction, lab report processing, and billing workflows without exposing PHI to the cloud.',
     useCases: [
       'EMR data extraction and migration',
@@ -33,7 +33,7 @@ const industries = [
     icon: CreditCard,
     name: 'Finance',
     compliance: 'PCI-DSS & SOC2',
-    market: '$4.1B market, 22% CAGR',
+    tagline: 'Enterprise-grade security for financial workflows',
     description: 'Streamline KYC automation, transaction reconciliation, and regulatory reporting with enterprise-grade security.',
     useCases: [
       'KYC/AML automation',
@@ -53,7 +53,7 @@ const industries = [
     icon: Scale,
     name: 'Legal',
     compliance: 'Attorney-Client Privilege',
-    market: '$800M market, 15% CAGR',
+    tagline: 'Confidential document processing',
     description: 'Protect attorney-client privilege while automating contract analysis, document management, and e-discovery.',
     useCases: [
       'Contract review and analysis',
@@ -112,7 +112,7 @@ export default function IndustriesPage() {
                 </p>
 
                 <p className="text-sm text-[var(--text-muted)] mb-8">
-                  {industry.market}
+                  {industry.tagline}
                 </p>
 
                 <Link href="/contact" className="btn-primary">
