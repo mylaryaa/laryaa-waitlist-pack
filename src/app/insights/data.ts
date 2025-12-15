@@ -4,6 +4,8 @@ export interface Insight {
   thesis: string
   category: string
   topics: string[]
+  publishDate: string
+  readTime: string
   content: {
     intro: string
     sections: {
@@ -26,6 +28,8 @@ export const insights: Insight[] = [
     thesis: 'Intelligence isn\'t the bottleneck — execution is.',
     category: 'Problem Analysis',
     topics: ['Legacy Systems', 'RPA Failures', 'Integration Gap'],
+    publishDate: '2025-12-01',
+    readTime: '8 min read',
     content: {
       intro: 'Every year, enterprises spend billions on automation initiatives. Every year, manual work persists. The standard explanation blames resistance to change, inadequate AI, or poor implementation. The real explanation is simpler and more structural: the systems where work happens cannot be automated by current approaches.',
       sections: [
@@ -72,6 +76,8 @@ export const insights: Insight[] = [
     thesis: 'Automation is deterministic. Agents operate under uncertainty.',
     category: 'Technical Framework',
     topics: ['Agent Architecture', 'Execution Models', 'Uncertainty Handling'],
+    publishDate: '2025-11-28',
+    readTime: '7 min read',
     content: {
       intro: 'The term "agent" is applied to everything from chatbots to robotic arms. This imprecision obscures a fundamental architectural distinction: automation executes predefined sequences, while agentic systems navigate uncertainty toward goals. The difference matters because it determines what problems can be solved.',
       sections: [
@@ -117,6 +123,8 @@ export const insights: Insight[] = [
     thesis: 'Privacy laws didn\'t kill AI — they killed cloud-first assumptions.',
     category: 'Compliance Reality',
     topics: ['HIPAA', 'GDPR', 'Air-Gapped Systems', 'Data Sovereignty'],
+    publishDate: '2025-11-25',
+    readTime: '9 min read',
     content: {
       intro: 'The dominant agent architecture is cloud-first: capture screen, send to cloud, receive instructions, execute locally. This architecture is elegant, scalable, and illegal in most regulated industries. Understanding why requires examining what privacy regulations actually prohibit.',
       sections: [
@@ -164,6 +172,8 @@ export const insights: Insight[] = [
     thesis: 'Screens are the last stable API.',
     category: 'Technical Architecture',
     topics: ['Visual Automation', 'API Limitations', 'Cross-Platform'],
+    publishDate: '2025-11-22',
+    readTime: '6 min read',
     content: {
       intro: 'Visual automation — reading screens and clicking elements — is often dismissed as a crude workaround for proper integration. This dismissal reflects a misunderstanding of enterprise software reality. Vision isn\'t the fallback interface. It\'s the only interface that works everywhere.',
       sections: [
@@ -212,6 +222,8 @@ export const insights: Insight[] = [
     thesis: 'True self-healing is probabilistic, partial, and bounded.',
     category: 'Technical Honesty',
     topics: ['Failure Recovery', 'UI Changes', 'Realistic Expectations'],
+    publishDate: '2025-11-18',
+    readTime: '8 min read',
     content: {
       intro: 'Every automation vendor claims "self-healing" capabilities. The term has become meaningless through overuse. A clear-eyed assessment of what can and cannot be automatically recovered reveals both real value and fundamental limits.',
       sections: [
@@ -262,6 +274,8 @@ export const insights: Insight[] = [
     thesis: 'Zero-trust is about execution boundaries, not encryption.',
     category: 'Security Architecture',
     topics: ['Zero-Trust Model', 'Data Sanitization', 'Execution Boundaries'],
+    publishDate: '2025-11-15',
+    readTime: '10 min read',
     content: {
       intro: 'Zero-trust has become a security buzzword applied to everything. For AI agents, zero-trust has specific architectural meaning: no component trusts any other component with sensitive data. Understanding this requires examining where trust boundaries must be enforced.',
       sections: [
@@ -313,6 +327,8 @@ export const insights: Insight[] = [
     thesis: 'Legacy architecture creates strategic inertia.',
     category: 'Market Analysis',
     topics: ['RPA Limitations', 'Architectural Debt', 'Market Dynamics'],
+    publishDate: '2025-11-12',
+    readTime: '7 min read',
     content: {
       intro: 'Major RPA vendors have announced AI-powered, agentic, intelligent automation capabilities. These announcements reflect market pressure more than architectural possibility. Understanding why requires examining what\'s built into existing RPA platforms.',
       sections: [
@@ -361,6 +377,8 @@ export const insights: Insight[] = [
     thesis: 'Intelligence without execution control is still useless.',
     category: 'Technical Analysis',
     topics: ['Local AI', 'Model Limitations', 'Hybrid Architecture'],
+    publishDate: '2025-11-08',
+    readTime: '8 min read',
     content: {
       intro: 'The excitement around running LLMs locally — on laptops, edge devices, even phones — suggests a path to private AI automation. But running a local model is not the same as solving the automation problem. Intelligence is necessary but insufficient.',
       sections: [
@@ -410,6 +428,8 @@ export const insights: Insight[] = [
     thesis: 'Foundational layers always look unimpressive at first.',
     category: 'Strategic Perspective',
     topics: ['Platform Strategy', 'Infrastructure Value', 'Long-term Thinking'],
+    publishDate: '2025-11-05',
+    readTime: '6 min read',
     content: {
       intro: 'Building an operating system layer for AI agents appears slower than building a specific AI application. The OS approach ships fewer features, demonstrates less immediate value, and confuses users expecting point solutions. History suggests this is exactly correct.',
       sections: [
@@ -459,6 +479,8 @@ export const insights: Insight[] = [
     thesis: 'Trust comes from admitting limits.',
     category: 'Transparent Assessment',
     topics: ['Current State', 'Known Limitations', 'Development Roadmap'],
+    publishDate: '2025-11-01',
+    readTime: '9 min read',
     content: {
       intro: 'Credibility in enterprise software comes from honesty about capabilities and limitations. Here is a direct assessment of what Laryaa aOS can and cannot do as of our current release.',
       sections: [

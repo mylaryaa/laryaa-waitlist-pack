@@ -28,6 +28,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: insight.title,
     description: insight.thesis,
+    openGraph: {
+      title: insight.title,
+      description: insight.thesis,
+      type: 'article',
+      publishedTime: insight.publishDate,
+      authors: ['Laryaa'],
+      tags: insight.topics,
+    },
+  }
+}
+
+function generateArticleSchema(insight: typeof insights[0]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: insight.title,
+    description: insight.thesis,
+    datePublished: insight.publishDate,
+    dateModified: insight.publishDate,
+    author: {
+      '@type': 'Organization',
+      name: 'Laryaa',
+      url: 'https://laryaa.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Laryaa',
+      url: 'https://laryaa.com',
+    },
+    keywords: insight.topics.join(', '),
+    articleSection: insight.category,
   }
 }
 
@@ -42,9 +73,14 @@ export default async function InsightPage({ params }: PageProps) {
   const insight = insights[insightIndex]
   const prevInsight = insightIndex > 0 ? insights[insightIndex - 1] : null
   const nextInsight = insightIndex < insights.length - 1 ? insights[insightIndex + 1] : null
+  const articleSchema = generateArticleSchema(insight)
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Navbar />
       <main className="max-w-4xl mx-auto px-6 pt-32 pb-16">
         {/* Back Link */}
@@ -65,6 +101,10 @@ export default async function InsightPage({ params }: PageProps) {
             <span className="text-xs px-2 py-1 rounded-full bg-[var(--bg-alt)] text-[var(--text-muted)]">
               {insight.category}
             </span>
+            <span className="text-sm text-[var(--text-muted)]">
+              {new Date(insight.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </span>
+            <span className="text-sm text-[var(--text-muted)]">· {insight.readTime}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-normal tracking-tight mb-6">
             {insight.title}

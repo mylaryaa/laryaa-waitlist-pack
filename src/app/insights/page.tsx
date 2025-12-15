@@ -45,6 +45,12 @@ export default function InsightsPage() {
                       <span className="text-xs px-2 py-1 rounded-full bg-[var(--bg-alt)] text-[var(--text-muted)]">
                         {insight.category}
                       </span>
+                      <span className="text-xs text-[var(--text-muted)]">
+                        {new Date(insight.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </span>
+                      <span className="text-xs text-[var(--text-muted)]">
+                        · {insight.readTime}
+                      </span>
                     </div>
                     <h2 className="text-xl md:text-2xl font-medium mb-3 group-hover:text-[var(--text)] transition-colors">
                       {insight.title}
