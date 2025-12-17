@@ -82,6 +82,28 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Demo Video Section */}
+        <section className="py-24 border-t border-[var(--border)]">
+          <div className="max-w-3xl mx-auto">
+            <p className="section-label">Demo</p>
+            <h2 className="section-title mb-2">Laryaa aOS Demo v0.3.2</h2>
+            <p className="section-subtitle mb-6">
+              This is the demo of our Laryaa aOS. Version: v 0.3.2.<br />
+              This demo is recorded and the prototype works on edge device - i3 processor, 8GB RAM, 128GB SSD.
+            </p>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.youtube.com/embed/_kjtoN2PChY?si=7V8voyM-jorzIIFB"
+                title="Laryaa aOS Demo v0.3.2"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full aspect-video"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-24 border-t border-[var(--border)]">
           <div className="max-w-2xl">

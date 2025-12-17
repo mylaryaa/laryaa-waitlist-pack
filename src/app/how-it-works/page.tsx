@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArrowRight, Zap, RefreshCw, Brain, Gauge } from 'lucide-react'
 import type { Metadata } from 'next'
 
+import { VideoEmbed } from '@/components'
+
 export const metadata: Metadata = {
   title: 'How It Works',
   description: 'Learn how Laryaa aOS works - self-healing automation with RPA speed and AI intelligence.',
@@ -76,6 +78,17 @@ export default function HowItWorksPage() {
             RPA broke because UIs change. Vision agents are slow and leak data. 
             Laryaa combines the speed of RPA with the adaptability of AI — without the tradeoffs.
           </p>
+        </section>
+
+        {/* Demo Video Section */}
+        <section className="mb-24">
+          <VideoEmbed
+            src="https://www.youtube.com/embed/_kjtoN2PChY?si=7V8voyM-jorzIIFB"
+            title="Laryaa aOS Demo v0.3.2"
+            description={
+              `This is the demo of our Laryaa aOS. Version: v 0.3.2.\n\nThis demo is recorded and the prototype works on edge device - i3 processor, 8GB RAM, 128GB SSD.`
+            }
+          />
         </section>
 
         {/* Core Capabilities */}
